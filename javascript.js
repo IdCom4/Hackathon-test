@@ -7,6 +7,8 @@ $(document).ready(function() {
 	var interval;
 
 	var secure = 0;
+	var stop = 0;
+	var level = 1;
 
 	var posOrigin = new String();
 	var dirOrigin;
@@ -30,6 +32,7 @@ $(document).ready(function() {
 		$("#option" + coucou).hide();
 	}
 
+	$("#startBis").hide();
 	$("#perdu").hide();
 	$("#gagne").hide();
 
@@ -78,9 +81,15 @@ $(document).ready(function() {
 		if(current[0] != '0')
 		{
 			if($(this).attr("id") == "option6")
+			{
+				$("#" + current).removeClass("orange");
 				$("#" + current).addClass("vert");
+			}
 			else if($(this).attr("id") == "option7")
+			{
+				$("#" + current).removeClass("vert");
 				$("#" + current).addClass("orange");
+			}
 			else
 			{
 				$("#" + current).html($(this).html());
@@ -101,7 +110,7 @@ $(document).ready(function() {
 				if(fonction[y][x] >= 100 && fonction[y][x] < 200)
 					fonction[y][x] = 102;
 				else if(fonction[y][x] >= 200)
-					fonction[y][x] = 201;
+					fonction[y][x] = 202;
 				else
 					fonction[y][x] = 2;
 			}
@@ -134,19 +143,19 @@ $(document).ready(function() {
 			}
 			if($(this).attr("id") == "option6")
 			{
+				console.log("condition verte");
 				if(fonction[y][x] < 100)
 					fonction[y][x] += 100;
 				else if(fonction[y][x] >= 200)
 					fonction[y][x] -= 100;
-				console.log("on rajoute une condition verte, fonction[y][x] = " + fonction[y][x]);
 			}
 			if($(this).attr("id") == "option7")
 			{
+				console.log("condition orange");
 				if(fonction[y][x] >= 100 && fonction[y][x] < 200)
 					fonction[y][x] += 100;
 				else if(fonction[y][x] < 100)
 					fonction[y][x] += 200;
-				console.log("on rajoute une condition orange, fonction[y][x] = " + fonction[y][x]);
 			}
 			if($(this).attr("id") == "option8")
 			{
@@ -271,76 +280,280 @@ $(document).ready(function() {
 
 
 	function lvl1() {
-		var y = 0;
-		var x = 0;
-		posOrigin += '#';
-		posOrigin += "F3";
-		dirOrigin = 1;
-		pieceOrigin[0] = new String();
-		pieceOrigin[0] += "A2";
-		pieceOrigin[1] = new String();
-		pieceOrigin[1] += "A9";
-		pieceOrigin[2] = new String();
-		pieceOrigin[2] += "B1";
-		pieceOrigin[3] = new String();
-		pieceOrigin[3] += "B10";
-		pieceOrigin[4] = new String();
-		pieceOrigin[4] += "I1";
-		pieceOrigin[5] = new String();
-		pieceOrigin[5] += "I10";
-		pieceOrigin[6] = new String();
-		pieceOrigin[6] += "J2";
-		pieceOrigin[7] = new String();
-		pieceOrigin[7] += "J9";
-		pieceOrigin[8] = new String();
-		pieceOrigin[8] += "00";
-		numPiece = 8;
-		while(y < 10)
-		{
-			gridTest[y] = new Array();
-			grid[y] = new Array();
-			while(x < 10)
+			var y = 0;
+			var x = 0;
+			posOrigin = new String();
+			posOrigin += '#';
+			posOrigin += "E5";
+			dirOrigin = 2;
+			pieceOrigin[0] = new String();
+			pieceOrigin[0] += "E6";
+			pieceOrigin[1] = new String();
+			pieceOrigin[1] += "00";
+			numPiece = 1;
+			while(y < 10)
 			{
-				grid[y][x] = 0;
-				gridTest[y][x] = 0;
-				if((y == 0 || y == 9) && ((x >= 0 && x <= 2) || (x >= 7 && x <= 9)))
+				gridTest[y] = new Array();
+				grid[y] = new Array();
+				while(x < 10)
 				{
-					grid[y][x] = 1;
-					gridTest[y][x] = 1;
+					if(y == 4 && (x == 4 || x == 5))
+					{
+						gridTest[y][x] = 1;
+						grid[y][x] = 1;
+					}
+					else
+					{
+						gridTest[y][x] = 0;
+						grid[y][x] = 0;
+					}
+					x++;
 				}
-				if(y == 2 || y == 7)
-				{
-					grid[y][x] = 1;
-					gridTest[y][x] = 1;	
-				}
-				if((y == 1 || y == 8) && (x == 0 || x == 2 || x == 7 || x == 9))
-				{
-					grid[y][x] = 1;
-					gridTest[y][x] = 1;
-				}
-				if(x == 2 || x == 7)
-				{
-					grid[y][x] = 1;
-					gridTest[y][x] = 1;
-				}
-				if((y == 0 || y == 2 || y == 7 || y == 9) && (x == 0 || x == 2 || x == 7 || x == 9))
-				{
-					grid[y][x] = 2;
-					gridTest[y][x] = 2;
-				}
-
-				x++;
+				x = 0;
+				y++;
 			}
-			x = 0;
-			y++;
 		}
-	}
 
+		function lvl2() {
+			var y = 0;
+			var x = 0;
+			posOrigin = new String();
+			posOrigin += '#';
+			posOrigin += "E5";
+			dirOrigin = 2;
+			pieceOrigin[0] = new String();
+			pieceOrigin[0] += "E7";
+			pieceOrigin[1] = new String();
+			pieceOrigin[1] += "00";
+			numPiece = 1;
+			while(y < 10)
+			{
+				gridTest[y] = new Array();
+				grid[y] = new Array();
+				while(x < 10)
+				{
+					if(y == 4 && (x >= 4 && x <= 6))
+					{
+						gridTest[y][x] = 1;
+						grid[y][x] = 1;
+					}
+					else
+					{
+						gridTest[y][x] = 0;
+						grid[y][x] = 0;
+					}
+					x++;
+				}
+				x = 0;
+				y++;
+			}
+		}
 
+	function lvl3() {
+			var y = 0;
+			var x = 0;
+			posOrigin = new String();
+			posOrigin += '#';
+			posOrigin += "E3";
+			dirOrigin = 2;
+			pieceOrigin[0] = new String();
+			pieceOrigin[0] += "E8";
+			pieceOrigin[1] = new String();
+			pieceOrigin[1] += "00";
+			numPiece = 1;
+			while(y < 10)
+			{
+				gridTest[y] = new Array();
+				grid[y] = new Array();
+				while(x < 10)
+				{
+					if(y == 4 && x > 1 && x < 8)
+					{
+						gridTest[y][x] = 1;
+						grid[y][x] = 1;
+					}
+					else
+					{
+						gridTest[y][x] = 0;
+						grid[y][x] = 0;
+					}
+					x++;
+				}
+				x = 0;
+				y++;
+			}
+		}
+
+		function lvl4() {
+			var y = 0;
+			var x = 0;
+			posOrigin = new String();
+			posOrigin += '#';
+			posOrigin += "E3";
+			dirOrigin = 2;
+			pieceOrigin[0] = new String();
+			pieceOrigin[0] += "H8";
+			pieceOrigin[1] = new String();
+			pieceOrigin[1] += "00";
+			numPiece = 1;
+			while(y < 10)
+			{
+				gridTest[y] = new Array();
+				grid[y] = new Array();
+				while(x < 10)
+				{
+					if(y == 4 && x > 1 && x < 8)
+					{
+						gridTest[y][x] = 1;
+						grid[y][x] = 1;
+					}
+					else if(x == 7 && y >= 4 && y <= 7)
+					{
+						gridTest[y][x] = 1;
+						grid[y][x] = 1;
+					}
+					else
+					{
+						gridTest[y][x] = 0;
+						grid[y][x] = 0;
+					}
+					x++;
+				}
+				x = 0;
+				y++;
+			}
+			gridTest[4][7] = 2;
+			grid[4][7] = 2;
+		}
+
+		function lvl5() {
+			var y = 0;
+			var x = 0;
+			posOrigin = new String();
+			posOrigin += '#';
+			posOrigin += "J10";
+			dirOrigin = 4;
+			pieceOrigin[0] = new String();
+			pieceOrigin[0] += "E5";
+			pieceOrigin[1] = new String();
+			pieceOrigin[1] += "00";
+			numPiece = 1;
+			while(y < 10)
+			{
+				gridTest[y] = new Array();
+				grid[y] = new Array();
+				while(x < 10)
+				{
+					gridTest[y][x] = 0;
+					grid[y][x] = 0;
+					if(y == 0 || y == 9)
+					{
+						gridTest[y][x] = 1;
+						grid[y][x] = 1;
+					}
+					if((y == 2 && (x >= 2 && x <= 7)) || (y == 7 && x >= 2))
+					{
+						gridTest[y][x] = 1;
+						grid[y][x] = 1;
+					}
+					if(y == 5 && (x >= 4 && x <= 7))
+					{
+						gridTest[y][x] = 1;
+						grid[y][x] = 1;
+					}
+					if(x == 0 || (x == 9 && (y >= 0 && y <= 7)) || (x == 2 && (y >= 2 && y <= 7)) || (x == 7 && (y >= 2 && y <= 5)) || (x == 4 && (y == 4 || y == 5)))
+					{
+						gridTest[y][x] = 1;
+						grid[y][x] = 1;
+					}
+					if((y == 0 && (x == 0 || x == 9)) || (y == 9 && x == 0) || (y == 2 && (x == 2 || x == 7)) || (y == 7 && (x == 2 || x == 9)) || (y == 5 && (x == 4 || x == 7)))
+					{
+						gridTest[y][x] = 2;
+						grid[y][x] = 2;
+					}
+					x++;
+				}
+				x = 0;
+				y++;
+			}
+		}
+
+	function lvl6() {
+			var y = 0;
+			var x = 0;
+			posOrigin = new String();
+			posOrigin += '#';
+			posOrigin += "F3";
+			dirOrigin = 1;
+			pieceOrigin[0] = new String();
+			pieceOrigin[0] += "A2";
+			pieceOrigin[1] = new String();
+			pieceOrigin[1] += "A9";
+			pieceOrigin[2] = new String();
+			pieceOrigin[2] += "B1";
+			pieceOrigin[3] = new String();
+			pieceOrigin[3] += "B10";
+			pieceOrigin[4] = new String();
+			pieceOrigin[4] += "I1";
+			pieceOrigin[5] = new String();
+			pieceOrigin[5] += "I10";
+			pieceOrigin[6] = new String();
+			pieceOrigin[6] += "J2";
+			pieceOrigin[7] = new String();
+			pieceOrigin[7] += "J9";
+			pieceOrigin[8] = new String();
+			pieceOrigin[8] += "00";
+			numPiece = 8;
+			while(y < 10)
+			{
+				gridTest[y] = new Array();
+				grid[y] = new Array();
+				while(x < 10)
+				{
+					grid[y][x] = 0;
+					gridTest[y][x] = 0;
+					if((y == 0 || y == 9) && ((x >= 0 && x <= 2) || (x >= 7 && x <= 9)))
+					{
+						grid[y][x] = 1;
+						gridTest[y][x] = 1;
+					}
+					if(y == 2 || y == 7)
+					{
+						grid[y][x] = 1;
+						gridTest[y][x] = 1;	
+					}
+					if((y == 1 || y == 8) && (x == 0 || x == 2 || x == 7 || x == 9))
+					{
+						grid[y][x] = 1;
+						gridTest[y][x] = 1;
+					}
+					if(x == 2 || x == 7)
+					{
+						grid[y][x] = 1;
+						gridTest[y][x] = 1;
+					}
+					if((y == 0 || y == 2 || y == 7 || y == 9) && (x == 0 || x == 2 || x == 7 || x == 9))
+					{
+						grid[y][x] = 2;
+						gridTest[y][x] = 2;
+					}
+
+					x++;
+				}
+				x = 0;
+				y++;
+			}
+		}
 
 	function initFonction () {
 		var y = 0;
 		var x = 0;
+		for(var coucou = 2; coucou <= 10; coucou++) {
+			$("#f" + coucou).hide();
+		}
+		for(var coucou = 10; coucou <= 18; coucou++) {
+			$("#option" + coucou).hide();
+		}
 		while(y < 10)
 		{
 			fonction[y] = new Array();
@@ -348,6 +561,8 @@ $(document).ready(function() {
 			{
 				fonction[y][x] = 0;
 				$("#f" + (y + 1) + "-" + (x + 1)).empty();
+				$("#f" + (y + 1) + "-" + (x + 1)).removeClass("orange");
+				$("#f" + (y + 1) + "-" + (x + 1)).removeClass("vert");
 				x++;
 			}
 			x = 0;
@@ -622,7 +837,6 @@ $(document).ready(function() {
 	function find_dir() {
 		var src;
 		src = $("div.perso img").attr("src");
-		console.log("src[11] = " + src[11]);
 		if(src[11] == '1')
 			return 1;
 		else if(src[11] == '2')
@@ -659,11 +873,11 @@ $(document).ready(function() {
 		var x = 0;
 		var done = 2;
 		var id = new String();
-		console.log("////////////");
+		/*console.log("////////////");
 		console.log("posPersoY = " + posPersoY);
 		console.log("posPersoX = " + posPersoX);
 		//console.log("grid["+ posPersoY +"]["+ posPersoX +"] = " + grid[posPersoY][posPersoX]);
-		console.log("////////////");
+		console.log("////////////");*/
 		if(numPiece <= 0)
 			return 2;
 		if(posPersoY < 0 || posPersoX < 0)
@@ -680,7 +894,7 @@ $(document).ready(function() {
 				// 	done = 0;
 				if((y == posPersoY && x == posPersoX) && grid[y][x] == 0)
 				{
-					console.log("///// SORTIE ///////");
+					//console.log("///// SORTIE ///////");
 					return 1;
 				}
 				x++;
@@ -710,17 +924,54 @@ $(document).ready(function() {
 
 	$("#reset").click(function () {
 		initFonction();
+		reset();
 	});
 
-	function reset() {
+	function initLevel(nouv) {
+		if(level == 2 || level == '2')
+		{
+			level = 2;
+			lvl2();
+		}
+		else if(level == 3 || level == '3')
+		{
+			level = 3;
+			lvl3();
+		}
+		else if(level == 4 || level == '4')
+		{
+			level = 4;
+			lvl4();
+		}
+		else if(level == 5 || level == '5')
+		{
+			level = 5;
+			lvl5();
+		}
+		else if(level == 6 || level == '6')
+		{
+			level = 6;
+			lvl6();
+		}
+		else
+		{
+			lvl1();
+			level = 1;
+		}
+		if(nouv == 1)
+			initFonction();
+		reset_html();
+	}
+
+	function reset(nouv) {
 		toDo = new String();
 		toDo += '0';
 		count = 0;
-		lvl1();
+		initLevel(nouv);
 		reset_html();
 		console.log("on reset");
 	}
-	reset();
+	reset(0);
 
 	function executeFonction(numFonction) {
 		var i = 0;
@@ -728,6 +979,7 @@ $(document).ready(function() {
 		var tamp = 0;
 		//var dir;
 		var sous = 0;
+		var addSecure = 0;
 		console.log("numFonction - 1 = " + (numFonction - 1));
 		console.log("fonction[numFonction - 1] = " + fonction[numFonction - 1]);
 		while(i < 15 && fonction[numFonction - 1][i] != 0 && over(posXtest, posYtest) == 0)
@@ -837,6 +1089,12 @@ $(document).ready(function() {
 			else if(fonction[numFonction - 1][i] >= 9 && fonction[numFonction - 1][i] <= 18)
 			{
 				console.log("change de fonction");
+				secure++;
+				addSecure = 1;
+				if(secure > 1000)
+				{
+					return(0);
+				}
 				if(sous != 0)
 				{
 					fonction[numFonction - 1][i] += sous;
@@ -848,16 +1106,15 @@ $(document).ready(function() {
 					executeFonction(fonction[numFonction - 1][i] - 8);
 			}
 			//wait(2000);
-			secure++;
+			if(addSecure == 0)
+				secure++;
+			else
+				addSecure = 0;
 			if(secure > 1000)
 			{
 				return(0);
 			}
 			i++;
-			if(fonction[numFonction - 1][i] == 0)
-			{
-				console.log("Fonction End !!!!!!!!!!!!!!!!!!!!!!!!!!");
-			}
 		}
 	}
 
@@ -985,11 +1242,13 @@ $(document).ready(function() {
 		else if(toDo[count] == '8')
 		{
 			//ne rien faire
-			console.log("wait");
 		}
-		else if(toDo[count] == '0')
+		else if(toDo[count] == '0' || stop == 1)
 		{
 			clearInterval(interval);
+			stop = 0;
+			$("#startBis").hide();
+			$("#start").show();
 			if(over(posPersoX, posPersoY) == 2)
 				$("#gagne").show();
 			else
@@ -998,26 +1257,40 @@ $(document).ready(function() {
 		count++;
 	}
 
+	$("#select").click(function () {
+		level = prompt("Entrez le numéro du niveau voulu :");
+		initLevel(1);
+	});
+
+	$("#stop").click(function () {
+		stop = 1;
+		reset(0);
+	});
+
 	$("#start").click(function () {
 		posYtest = find_perso('y');
 		posXtest = find_perso('x');
 		dirTest = find_dir();
-		console.log("dirTest = " + dirTest);
 
 		showFonction();
-		console.log("start");
 
 		executeFonction(1);
 		secure = 0;
 		interval = setInterval(go, 500);
 
-		console.log("end")
-			
+		$("#startBis").show();
+		$("#start").hide();
 	});
 
 	$(".close").click(function () {
-		reset();
+		reset(0);
 		$("#perdu").hide();
 		$("#gagne").hide();
+		if($(this).parent().attr("id") == "gagneBis")
+		{
+			level++;
+			console.log("level++ = " + level);
+			initLevel(1);
+		}
 	});
 });
