@@ -280,274 +280,226 @@ $(document).ready(function() {
 
 
 	function lvl1() {
-			var y = 0;
-			var x = 0;
-			posOrigin = new String();
-			posOrigin += '#';
-			posOrigin += "E5";
+			posOrigin = new String("#E5");
 			dirOrigin = 2;
-			pieceOrigin[0] = new String();
-			pieceOrigin[0] += "E6";
-			pieceOrigin[1] = new String();
-			pieceOrigin[1] += "00";
+			pieceOrigin[0] = new String("E6");
+			pieceOrigin[1] = new String("00");
 			numPiece = 1;
-			while(y < 10)
-			{
-				gridTest[y] = new Array();
-				grid[y] = new Array();
-				while(x < 10)
-				{
-					if(y == 4 && (x == 4 || x == 5))
-					{
-						gridTest[y][x] = 1;
-						grid[y][x] = 1;
-					}
-					else
-					{
-						gridTest[y][x] = 0;
-						grid[y][x] = 0;
-					}
-					x++;
-				}
-				x = 0;
-				y++;
-			}
+
+			gridTest[0] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[1] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[2] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[3] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[4] = new Array(0,0,0,0,1,1,0,0,0,0);
+			gridTest[5] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[6] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[7] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[8] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[9] = new Array(0,0,0,0,0,0,0,0,0,0);
+
+			grid[0] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[1] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[2] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[3] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[4] = new Array(0,0,0,0,1,1,0,0,0,0);
+			grid[5] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[6] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[7] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[8] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[9] = new Array(0,0,0,0,0,0,0,0,0,0);
 		}
 
 		function lvl2() {
-			var y = 0;
-			var x = 0;
-			posOrigin = new String();
-			posOrigin += '#';
-			posOrigin += "E5";
+			posOrigin = new String("#E5");
 			dirOrigin = 2;
-			pieceOrigin[0] = new String();
-			pieceOrigin[0] += "E7";
-			pieceOrigin[1] = new String();
-			pieceOrigin[1] += "00";
+			pieceOrigin[0] = new String("E7");
+			pieceOrigin[1] = new String("00");
 			numPiece = 1;
-			while(y < 10)
-			{
-				gridTest[y] = new Array();
-				grid[y] = new Array();
-				while(x < 10)
-				{
-					if(y == 4 && (x >= 4 && x <= 6))
-					{
-						gridTest[y][x] = 1;
-						grid[y][x] = 1;
-					}
-					else
-					{
-						gridTest[y][x] = 0;
-						grid[y][x] = 0;
-					}
-					x++;
-				}
-				x = 0;
-				y++;
-			}
+
+			gridTest[0] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[1] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[2] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[3] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[4] = new Array(0,0,0,0,1,1,1,0,0,0);
+			gridTest[5] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[6] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[7] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[8] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[9] = new Array(0,0,0,0,0,0,0,0,0,0);
+
+			grid[0] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[1] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[2] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[3] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[4] = new Array(0,0,0,0,1,1,1,0,0,0);
+			grid[5] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[6] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[7] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[8] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[9] = new Array(0,0,0,0,0,0,0,0,0,0);
 		}
 
 	function lvl3() {
-			var y = 0;
-			var x = 0;
-			posOrigin = new String();
-			posOrigin += '#';
-			posOrigin += "E3";
+			posOrigin = new String("#E3");
 			dirOrigin = 2;
-			pieceOrigin[0] = new String();
-			pieceOrigin[0] += "E8";
-			pieceOrigin[1] = new String();
-			pieceOrigin[1] += "00";
+			pieceOrigin[0] = new String("E8");
+			pieceOrigin[1] = new String("00");
 			numPiece = 1;
-			while(y < 10)
-			{
-				gridTest[y] = new Array();
-				grid[y] = new Array();
-				while(x < 10)
-				{
-					if(y == 4 && x > 1 && x < 8)
-					{
-						gridTest[y][x] = 1;
-						grid[y][x] = 1;
-					}
-					else
-					{
-						gridTest[y][x] = 0;
-						grid[y][x] = 0;
-					}
-					x++;
-				}
-				x = 0;
-				y++;
-			}
+
+			gridTest[0] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[1] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[2] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[3] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[4] = new Array(0,0,1,1,1,1,1,1,0,0);
+			gridTest[5] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[6] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[7] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[8] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[9] = new Array(0,0,0,0,0,0,0,0,0,0);
+
+			grid[0] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[1] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[2] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[3] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[4] = new Array(0,0,1,1,1,1,1,1,0,0);
+			grid[5] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[6] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[7] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[8] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[9] = new Array(0,0,0,0,0,0,0,0,0,0);
 		}
 
 		function lvl4() {
-			var y = 0;
-			var x = 0;
-			posOrigin = new String();
-			posOrigin += '#';
-			posOrigin += "E3";
+			posOrigin = new String("#E3");
 			dirOrigin = 2;
-			pieceOrigin[0] = new String();
-			pieceOrigin[0] += "H8";
-			pieceOrigin[1] = new String();
-			pieceOrigin[1] += "00";
+			pieceOrigin[0] = new String("H8");
+			pieceOrigin[1] = new String("00");
 			numPiece = 1;
-			while(y < 10)
-			{
-				gridTest[y] = new Array();
-				grid[y] = new Array();
-				while(x < 10)
-				{
-					if(y == 4 && x > 1 && x < 8)
-					{
-						gridTest[y][x] = 1;
-						grid[y][x] = 1;
-					}
-					else if(x == 7 && y >= 4 && y <= 7)
-					{
-						gridTest[y][x] = 1;
-						grid[y][x] = 1;
-					}
-					else
-					{
-						gridTest[y][x] = 0;
-						grid[y][x] = 0;
-					}
-					x++;
-				}
-				x = 0;
-				y++;
-			}
-			gridTest[4][7] = 2;
-			grid[4][7] = 2;
+
+			gridTest[0] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[1] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[2] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[3] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[4] = new Array(0,0,1,1,1,1,1,2,0,0);
+			gridTest[5] = new Array(0,0,0,0,0,0,0,1,0,0);
+			gridTest[6] = new Array(0,0,0,0,0,0,0,1,0,0);
+			gridTest[7] = new Array(0,0,0,0,0,0,0,1,0,0);
+			gridTest[8] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[9] = new Array(0,0,0,0,0,0,0,0,0,0);
+
+			grid[0] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[1] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[2] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[3] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[4] = new Array(0,0,1,1,1,1,1,2,0,0);
+			grid[5] = new Array(0,0,0,0,0,0,0,1,0,0);
+			grid[6] = new Array(0,0,0,0,0,0,0,1,0,0);
+			grid[7] = new Array(0,0,0,0,0,0,0,1,0,0);
+			grid[8] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[9] = new Array(0,0,0,0,0,0,0,0,0,0);
 		}
 
 		function lvl5() {
-			var y = 0;
-			var x = 0;
-			posOrigin = new String();
-			posOrigin += '#';
-			posOrigin += "J10";
+			posOrigin = new String("#J10");
 			dirOrigin = 4;
-			pieceOrigin[0] = new String();
-			pieceOrigin[0] += "E5";
-			pieceOrigin[1] = new String();
-			pieceOrigin[1] += "00";
+			pieceOrigin[0] = new String("E5");
+			pieceOrigin[1] = new String("00");
 			numPiece = 1;
-			while(y < 10)
-			{
-				gridTest[y] = new Array();
-				grid[y] = new Array();
-				while(x < 10)
-				{
-					gridTest[y][x] = 0;
-					grid[y][x] = 0;
-					if(y == 0 || y == 9)
-					{
-						gridTest[y][x] = 1;
-						grid[y][x] = 1;
-					}
-					if((y == 2 && (x >= 2 && x <= 7)) || (y == 7 && x >= 2))
-					{
-						gridTest[y][x] = 1;
-						grid[y][x] = 1;
-					}
-					if(y == 5 && (x >= 4 && x <= 7))
-					{
-						gridTest[y][x] = 1;
-						grid[y][x] = 1;
-					}
-					if(x == 0 || (x == 9 && (y >= 0 && y <= 7)) || (x == 2 && (y >= 2 && y <= 7)) || (x == 7 && (y >= 2 && y <= 5)) || (x == 4 && (y == 4 || y == 5)))
-					{
-						gridTest[y][x] = 1;
-						grid[y][x] = 1;
-					}
-					if((y == 0 && (x == 0 || x == 9)) || (y == 9 && x == 0) || (y == 2 && (x == 2 || x == 7)) || (y == 7 && (x == 2 || x == 9)) || (y == 5 && (x == 4 || x == 7)))
-					{
-						gridTest[y][x] = 2;
-						grid[y][x] = 2;
-					}
-					x++;
-				}
-				x = 0;
-				y++;
-			}
+
+			gridTest[0] = new Array(2,1,1,1,1,1,1,1,1,2);
+			gridTest[1] = new Array(1,0,0,0,0,0,0,0,0,1);
+			gridTest[2] = new Array(1,0,2,1,1,1,1,2,0,1);
+			gridTest[3] = new Array(1,0,1,0,0,0,0,1,0,1);
+			gridTest[4] = new Array(1,0,1,0,1,0,0,1,0,1);
+			gridTest[5] = new Array(1,0,1,0,2,1,1,2,0,1);
+			gridTest[6] = new Array(1,0,1,0,0,0,0,0,0,1);
+			gridTest[7] = new Array(1,0,2,1,1,1,1,1,1,2);
+			gridTest[8] = new Array(1,0,0,0,0,0,0,0,0,0);
+			gridTest[9] = new Array(2,1,1,1,1,1,1,1,1,1);
+
+			grid[0] = new Array(2,1,1,1,1,1,1,1,1,2);
+			grid[1] = new Array(1,0,0,0,0,0,0,0,0,1);
+			grid[2] = new Array(1,0,2,1,1,1,1,2,0,1);
+			grid[3] = new Array(1,0,1,0,0,0,0,1,0,1);
+			grid[4] = new Array(1,0,1,0,1,0,0,1,0,1);
+			grid[5] = new Array(1,0,1,0,2,1,1,2,0,1);
+			grid[6] = new Array(1,0,1,0,0,0,0,0,0,1);
+			grid[7] = new Array(1,0,2,1,1,1,1,1,1,2);
+			grid[8] = new Array(1,0,0,0,0,0,0,0,0,0);
+			grid[9] = new Array(2,1,1,1,1,1,1,1,1,1);
 		}
 
-	function lvl6() {
-			var y = 0;
-			var x = 0;
-			posOrigin = new String();
-			posOrigin += '#';
-			posOrigin += "F3";
-			dirOrigin = 1;
-			pieceOrigin[0] = new String();
-			pieceOrigin[0] += "A2";
-			pieceOrigin[1] = new String();
-			pieceOrigin[1] += "A9";
-			pieceOrigin[2] = new String();
-			pieceOrigin[2] += "B1";
-			pieceOrigin[3] = new String();
-			pieceOrigin[3] += "B10";
-			pieceOrigin[4] = new String();
-			pieceOrigin[4] += "I1";
-			pieceOrigin[5] = new String();
-			pieceOrigin[5] += "I10";
-			pieceOrigin[6] = new String();
-			pieceOrigin[6] += "J2";
-			pieceOrigin[7] = new String();
-			pieceOrigin[7] += "J9";
-			pieceOrigin[8] = new String();
-			pieceOrigin[8] += "00";
-			numPiece = 8;
-			while(y < 10)
-			{
-				gridTest[y] = new Array();
-				grid[y] = new Array();
-				while(x < 10)
-				{
-					grid[y][x] = 0;
-					gridTest[y][x] = 0;
-					if((y == 0 || y == 9) && ((x >= 0 && x <= 2) || (x >= 7 && x <= 9)))
-					{
-						grid[y][x] = 1;
-						gridTest[y][x] = 1;
-					}
-					if(y == 2 || y == 7)
-					{
-						grid[y][x] = 1;
-						gridTest[y][x] = 1;	
-					}
-					if((y == 1 || y == 8) && (x == 0 || x == 2 || x == 7 || x == 9))
-					{
-						grid[y][x] = 1;
-						gridTest[y][x] = 1;
-					}
-					if(x == 2 || x == 7)
-					{
-						grid[y][x] = 1;
-						gridTest[y][x] = 1;
-					}
-					if((y == 0 || y == 2 || y == 7 || y == 9) && (x == 0 || x == 2 || x == 7 || x == 9))
-					{
-						grid[y][x] = 2;
-						gridTest[y][x] = 2;
-					}
+		function lvl6() {
+			posOrigin = new String("#A10");
+			dirOrigin = 4;
+			pieceOrigin[0] = new String("J10");
+			pieceOrigin[1] = new String("00");
+			numPiece = 1;
+		
+			gridTest[0] = new Array(0,0,0,0,0,0,0,0,1,1);
+			gridTest[1] = new Array(0,0,0,0,0,0,0,1,1,0);
+			gridTest[2] = new Array(0,0,0,0,0,0,1,1,0,0);
+			gridTest[3] = new Array(0,0,0,0,0,1,1,0,0,0);
+			gridTest[4] = new Array(0,0,0,0,2,1,0,0,0,0);
+			gridTest[5] = new Array(0,0,0,0,2,1,0,0,0,0);
+			gridTest[6] = new Array(0,0,0,0,0,1,1,0,0,0);
+			gridTest[7] = new Array(0,0,0,0,0,0,1,1,0,0);
+			gridTest[8] = new Array(0,0,0,0,0,0,0,1,1,0);
+			gridTest[9] = new Array(0,0,0,0,0,0,0,0,1,1);
 
-					x++;
-				}
-				x = 0;
-				y++;
-			}
+			grid[0] = new Array(0,0,0,0,0,0,0,0,1,1);
+			grid[1] = new Array(0,0,0,0,0,0,0,1,1,0);
+			grid[2] = new Array(0,0,0,0,0,0,1,1,0,0);
+			grid[3] = new Array(0,0,0,0,0,1,1,0,0,0);
+			grid[4] = new Array(0,0,0,0,2,1,0,0,0,0);
+			grid[5] = new Array(0,0,0,0,2,1,0,0,0,0);
+			grid[6] = new Array(0,0,0,0,0,1,1,0,0,0);
+			grid[7] = new Array(0,0,0,0,0,0,1,1,0,0);
+			grid[8] = new Array(0,0,0,0,0,0,0,1,1,0);
+			grid[9] = new Array(0,0,0,0,0,0,0,0,1,1);
+		}
+
+	function lvl7() {
+			posOrigin = new String("#F3");
+			dirOrigin = 1;
+			pieceOrigin[0] = new String("A2");
+			pieceOrigin[1] = new String("A9");
+			pieceOrigin[2] = new String("B1");
+			pieceOrigin[3] = new String("B10");
+			pieceOrigin[4] = new String("I1");
+			pieceOrigin[5] = new String("I10");
+			pieceOrigin[6] = new String("J2");
+			pieceOrigin[7] = new String("J9");
+			pieceOrigin[8] = new String("00");
+			numPiece = 8;
+
+			gridTest[0] = new Array(2,1,2,0,0,0,0,2,1,2);
+			gridTest[1] = new Array(1,0,1,0,0,0,0,1,0,1);
+			gridTest[2] = new Array(2,1,2,1,1,1,1,2,1,2);
+			gridTest[3] = new Array(0,0,1,0,0,0,0,1,0,0);
+			gridTest[4] = new Array(0,0,1,0,0,0,0,1,0,0);
+			gridTest[5] = new Array(0,0,1,0,0,0,0,1,0,0);
+			gridTest[6] = new Array(0,0,1,0,0,0,0,1,0,0);
+			gridTest[7] = new Array(2,1,2,1,1,1,1,2,1,2);
+			gridTest[8] = new Array(1,0,1,0,0,0,0,1,0,1);
+			gridTest[9] = new Array(2,1,2,0,0,0,0,2,1,2);
+
+			grid[0] = new Array(2,1,2,0,0,0,0,2,1,2);
+			grid[1] = new Array(1,0,1,0,0,0,0,1,0,1);
+			grid[2] = new Array(2,1,2,1,1,1,1,2,1,2);
+			grid[3] = new Array(0,0,1,0,0,0,0,1,0,0);
+			grid[4] = new Array(0,0,1,0,0,0,0,1,0,0);
+			grid[5] = new Array(0,0,1,0,0,0,0,1,0,0);
+			grid[6] = new Array(0,0,1,0,0,0,0,1,0,0);
+			grid[7] = new Array(2,1,2,1,1,1,1,2,1,2);
+			grid[8] = new Array(1,0,1,0,0,0,0,1,0,1);
+			grid[9] = new Array(2,1,2,0,0,0,0,2,1,2);
 		}
 
 	function initFonction () {
 		var y = 0;
 		var x = 0;
+		nbrFonction = 1;
 		for(var coucou = 2; coucou <= 10; coucou++) {
 			$("#f" + coucou).hide();
 		}
@@ -952,6 +904,11 @@ $(document).ready(function() {
 		{
 			level = 6;
 			lvl6();
+		}
+		else if(level == 7 || level == '7')
+		{
+			level = 7;
+			lvl7();
 		}
 		else
 		{
