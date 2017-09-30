@@ -115,7 +115,7 @@ body, html, main {
 	transform: rotate(-90deg);
 }
 
-.option img, .caseF img {
+.option img, .caseF img, .case img, .f-header img {
 	position: absolute;
 	margin-top: 10%;
 	margin-left: 10%;
@@ -124,15 +124,7 @@ body, html, main {
 	width: 80%;
 	height: 80%;
 }
-.case img {
-	position: absolute;
-	margin-top: 10%;
-	margin-left: 10%;
-	top: 0;
-	left: 0;
-	width: 80%;
-	height: 80%;
-}
+
 .case {
 	position: relative;
 	width: 4vw;
@@ -152,7 +144,7 @@ body, html, main {
 }
 
 .tranche {
-	padding-top: 1.5vh;
+	padding-top: 0.5vh;
 	padding-left: 2vw;
 	display: flex;
 	flex-direction: row;
@@ -185,7 +177,7 @@ body, html, main {
 	display: flex;
 	flex-direction: row;
 	margin-left: 1vw;
-	margin-top: 1.5vh;
+	margin-top: 1vh;
 	width: 48vw;
 	height: 3vw;
 	background-color: white;
@@ -209,16 +201,17 @@ button {
 	height: 3vw;
 }
 .f-header {
+	position: relative;
 	width: 3vw;
 	height: 3vw;
-	background-color: lightgrey;
-	display: flex;
+	background-color: grey;
+	/*display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: center;*/
 }
 
 #tranche2 div, #option9 {
-	background-color: white;
+	background-color: grey;
 	border-radius: 10px;
 }
 
@@ -240,6 +233,33 @@ button {
 	border-radius: 10px;
 	font-weight: bold;
 }
+
+#startBis {
+	color: white;
+	width: 4vw;
+	height: 3vw;
+	background-color: #00d000;
+	position: absolute;
+	top: 2vh;
+	right: 5vw;
+	border: none;
+	border-radius: 10px;
+	font-weight: bold;
+}
+
+#select {
+	color: white;
+	width: 4vw;
+	height: 3vw;
+	background-color: #00d000;
+	position: absolute;
+	top: 2vh;
+	right: 41vw;
+	border: none;
+	border-radius: 10px;
+	font-weight: bold;
+}
+
 #reset {
 	color: white;
 	width: 4vw;
@@ -247,7 +267,20 @@ button {
 	background-color: #00d000;
 	position: absolute;
 	top: 2vh;
-	right: 45vw;
+	right: 15vw;
+	border: none;
+	border-radius: 10px;
+	font-weight: bold;
+}
+
+#stop {
+	color: white;
+	width: 4vw;
+	height: 3vw;
+	background-color: #00d000;
+	position: absolute;
+	top: 2vh;
+	right: 10vw;
 	border: none;
 	border-radius: 10px;
 	font-weight: bold;
