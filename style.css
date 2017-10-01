@@ -204,14 +204,14 @@ button {
 	position: relative;
 	width: 3vw;
 	height: 3vw;
-	background-color: grey;
+	background-color: #bcbcbc;
 	/*display: flex;
 	justify-content: center;
 	align-items: center;*/
 }
 
 #tranche2 div, #option9 {
-	background-color: grey;
+	background-color: #bcbcbc;
 	border-radius: 10px;
 }
 
