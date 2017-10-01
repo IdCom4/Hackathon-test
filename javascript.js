@@ -19,6 +19,7 @@ $(document).ready(function() {
 	var posXtest;
 	var dirTest;
 	var gridTest = new Array();
+	var gridPiece = new Array();
 
 	var fonction = new Array();
 	var nbrFonction = 1;
@@ -267,10 +268,12 @@ $(document).ready(function() {
 		{
 			gridTest[y] = new Array();
 			grid[y] = new Array();
+			gridPiece[y] = new Array();
 			while(x < 10)
 			{
 				gridTest[y][x] = 0;
 				grid[y][x] = 0;
+				gridPiece[y][x] = 0;
 				x++;
 			}
 			x = 0;
@@ -527,6 +530,43 @@ $(document).ready(function() {
 			grid[9] = new Array(2,1,2,0,0,0,0,2,1,2);
 		}
 
+		function lvl9() {
+			posOrigin = new String("#F1");
+			dirOrigin = 2;
+			pieceOrigin[0] = new String("D6");
+			pieceOrigin[1] = new String("E7");
+			pieceOrigin[2] = new String("F6");
+			pieceOrigin[3] = new String("H7");
+			pieceOrigin[4] = new String("D9");
+			pieceOrigin[5] = new String("B6");
+			pieceOrigin[6] = new String("D3");
+			pieceOrigin[7] = new String("I3");
+			pieceOrigin[8] = new String("00");
+			numPiece = 8;
+
+			gridTest[0] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[1] = new Array(0,0,2,1,1,1,1,1,2,0);
+			gridTest[2] = new Array(0,0,1,0,0,0,0,0,1,0);
+			gridTest[3] = new Array(0,0,1,0,1,1,1,0,1,0);
+			gridTest[4] = new Array(0,0,1,0,1,0,1,0,1,0);
+			gridTest[5] = new Array(1,1,2,1,2,1,1,0,1,0);
+			gridTest[6] = new Array(0,0,1,0,1,0,0,0,1,0);
+			gridTest[7] = new Array(0,0,1,0,1,0,1,1,2,0);
+			gridTest[8] = new Array(0,0,1,0,1,0,0,0,1,0);
+			gridTest[9] = new Array(0,0,0,0,1,1,1,1,1,0);
+
+			grid[0] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[1] = new Array(0,0,2,1,1,1,1,1,2,0);
+			grid[2] = new Array(0,0,1,0,0,0,0,0,1,0);
+			grid[3] = new Array(0,0,1,0,1,1,1,0,1,0);
+			grid[4] = new Array(0,0,1,0,1,0,1,0,1,0);
+			grid[5] = new Array(1,1,2,1,2,1,1,0,1,0);
+			grid[6] = new Array(0,0,1,0,1,0,0,0,1,0);
+			grid[7] = new Array(0,0,1,0,1,0,1,1,2,0);
+			grid[8] = new Array(0,0,1,0,1,0,0,0,1,0);
+			grid[9] = new Array(0,0,0,0,1,1,1,1,1,0);
+		}
+
 	function initFonction () {
 		var y = 0;
 		var x = 0;
@@ -641,7 +681,7 @@ $(document).ready(function() {
 			y++;
 		}
 	}
-
+	initGrid();
 	initFonction();
 	lvl1();
 	reset_html();
@@ -855,7 +895,7 @@ $(document).ready(function() {
 		var y = 0;
 		var x = 0;
 		var done = 2;
-		var id = new String();
+		//var id = new String();
 		/*console.log("////////////");
 		console.log("posPersoY = " + posPersoY);
 		console.log("posPersoX = " + posPersoX);
@@ -863,9 +903,11 @@ $(document).ready(function() {
 		console.log("////////////");*/
 		if(numPiece <= 0)
 			return 2;
-		if(posPersoY < 0 || posPersoX < 0)
+		if(posPersoY < 0 || posPersoX < 0 || posPersoY > 9 || posPersoX > 9)
 			return 1;
-		while(y < 10)
+		if(grid[posPersoY][posPersoX] == 0)
+			return 1;
+		/*while(y < 10)
 		{
 			while(x < 10)
 			{
@@ -875,7 +917,7 @@ $(document).ready(function() {
 				// id += putCoord(x, 'x');
 				// if($(id + " div").hasClass("piece"))
 				// 	done = 0;
-				if((y == posPersoY && x == posPersoX) && grid[y][x] == 0)
+				if((y == posPersoY && x == posPersoX) && )
 				{
 					//console.log("///// SORTIE ///////");
 					return 1;
@@ -884,7 +926,7 @@ $(document).ready(function() {
 			}
 			x = 0;
 			y++;
-		}
+		}*/
 		return 0;
 	}
 	$("#addFonction").click(function() {
@@ -911,6 +953,7 @@ $(document).ready(function() {
 	});
 
 	function initLevel(nouv) {
+		initGrid();
 		if(level == 2 || level == '2')
 		{
 			level = 2;
@@ -945,6 +988,11 @@ $(document).ready(function() {
 		{
 			level = 8;
 			lvl8();
+		}
+		else if(level == 9 || level == '9')
+		{
+			level = 9;
+			lvl9();
 		}
 		else
 		{
@@ -1014,13 +1062,14 @@ $(document).ready(function() {
 				{
 					posXtest -= 1;
 				}
-				if($("#" + putCoord(posYtest, 'y') + putCoord(posXtest, 'x') + " div").hasClass("piece"))
+				if($("#" + putCoord(posYtest, 'y') + putCoord(posXtest, 'x') + " div").hasClass("piece") && gridPiece[posYtest][posXtest] == 0)
 				{
+					gridPiece[posYtest][posXtest] = 1;
 					console.log("PIECE !!!!");
 					numPiece--;
-				}
+				}/*
 				console.log("y = " + posYtest);
-				console.log("x = " + posXtest);
+				console.log("x = " + posXtest);*/
 				console.log("avance");
 				update_toDo('1');
 			}
