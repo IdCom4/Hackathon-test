@@ -269,4 +269,41 @@
 			grid[9] = new Array(2,1,2,0,0,0,0,2,1,2);
 		}
 
+		function lvl9() {
+			posOrigin = new String("#F1");
+			dirOrigin = 2;
+			pieceOrigin[0] = new String("D6");
+			pieceOrigin[1] = new String("E7");
+			pieceOrigin[2] = new String("F6");
+			pieceOrigin[3] = new String("H7");
+			pieceOrigin[4] = new String("D9");
+			pieceOrigin[5] = new String("B6");
+			pieceOrigin[6] = new String("D3");
+			pieceOrigin[7] = new String("I3");
+			pieceOrigin[8] = new String("00");
+			numPiece = 8;
+
+			gridTest[0] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[1] = new Array(0,0,2,1,1,1,1,1,2,0);
+			gridTest[2] = new Array(0,0,1,0,0,0,0,0,1,0);
+			gridTest[3] = new Array(0,0,1,0,1,1,1,0,1,0);
+			gridTest[4] = new Array(0,0,1,0,1,0,1,0,1,0);
+			gridTest[5] = new Array(1,1,2,1,2,1,1,0,1,0);
+			gridTest[6] = new Array(0,0,1,0,1,0,0,0,1,0);
+			gridTest[7] = new Array(0,0,1,0,1,0,1,1,2,0);
+			gridTest[8] = new Array(0,0,1,0,1,0,0,0,1,0);
+			gridTest[9] = new Array(0,0,0,0,1,1,1,1,1,0);
+
+			grid[0] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[1] = new Array(0,0,2,1,1,1,1,1,2,0);
+			grid[2] = new Array(0,0,1,0,0,0,0,0,1,0);
+			grid[3] = new Array(0,0,1,0,1,1,1,0,1,0);
+			grid[4] = new Array(0,0,1,0,1,0,1,0,1,0);
+			grid[5] = new Array(1,1,2,1,2,1,1,0,1,0);
+			grid[6] = new Array(0,0,1,0,1,0,0,0,1,0);
+			grid[7] = new Array(0,0,1,0,1,0,1,1,2,0);
+			grid[8] = new Array(0,0,1,0,1,0,0,0,1,0);
+			grid[9] = new Array(0,0,0,0,1,1,1,1,1,0);
+		}
+
 		
