@@ -172,6 +172,36 @@
 		}
 
 		function lvl6() {
+			posOrigin = new String("#G10");
+			dirOrigin = 4;
+			pieceOrigin[0] = new String("C1");
+			pieceOrigin[1] = new String("00");
+			numPiece = 1;
+
+			gridTest[0] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[1] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[2] = new Array(1,1,0,0,0,0,0,0,0,0);
+			gridTest[3] = new Array(0,1,1,0,0,0,0,0,0,0);
+			gridTest[4] = new Array(0,0,1,1,0,0,0,0,0,0);
+			gridTest[5] = new Array(0,0,0,1,1,0,0,0,0,0);
+			gridTest[6] = new Array(0,0,0,0,1,2,1,1,1,1);
+			gridTest[7] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[8] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[9] = new Array(0,0,0,0,0,0,0,0,0,0);
+
+			grid[0] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[1] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[2] = new Array(1,1,0,0,0,0,0,0,0,0);
+			grid[3] = new Array(0,1,1,0,0,0,0,0,0,0);
+			grid[4] = new Array(0,0,1,1,0,0,0,0,0,0);
+			grid[5] = new Array(0,0,0,1,1,0,0,0,0,0);
+			grid[6] = new Array(0,0,0,0,1,2,1,1,1,1);
+			grid[7] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[8] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[9] = new Array(0,0,0,0,0,0,0,0,0,0);
+		}
+
+		function lvl7() {
 			posOrigin = new String("#A10");
 			dirOrigin = 4;
 			pieceOrigin[0] = new String("J10");
@@ -201,7 +231,7 @@
 			grid[9] = new Array(0,0,0,0,0,0,0,0,1,1);
 		}
 
-		function lvl7() {
+		function lvl8() {
 			posOrigin = new String("#E3");
 			dirOrigin = 2;
 			pieceOrigin[0] = new String("B7");
@@ -232,7 +262,7 @@
 			grid[9] = new Array(0,0,0,0,0,0,0,0,0,0);
 		}
 
-	function lvl8() {
+		function lvl9() {
 			posOrigin = new String("#F3");
 			dirOrigin = 1;
 			pieceOrigin[0] = new String("A2");
@@ -269,7 +299,7 @@
 			grid[9] = new Array(2,1,2,0,0,0,0,2,1,2);
 		}
 
-		function lvl9() {
+		function lvl10() {
 			posOrigin = new String("#F1");
 			dirOrigin = 2;
 			pieceOrigin[0] = new String("D6");
