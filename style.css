@@ -34,10 +34,10 @@ body, html, main {
 
 #gagne div, #perdu div {
 	position: absolute;
-	width: 44vw;
-	height: 15vh;
+	width: 40.5vw;
+	height: 20vh;
 	top: 2vh;
-	right: 3vw;
+	right: 5vw;
 	background-color: white;
 
 	border-radius: 10px;
@@ -92,7 +92,7 @@ body, html, main {
 
 #terrain {
 	position: absolute;
-	bottom: 3vh;
+	top: 25vh;
 	right: 5vw;
 	width: 40vw;
 	height: 40vw;
@@ -143,6 +143,13 @@ body, html, main {
 	box-shadow: 0px 0px 4px 4px black;
 }
 
+#option7, #option8 {
+	transform: rotate(-45deg);
+	position: relative;
+	left: 5vw;
+	box-shadow: 0px 0px 2px 2px white;
+}
+
 .turn {
 	transform: rotate(-90deg);
 }
@@ -186,7 +193,6 @@ body, html, main {
 
 #tranche1 {
 	position: relative;
-	left: 4vw;
 }
 
 #action {
@@ -267,7 +273,7 @@ button {
 #start {
 	color: black;
 	width: 5vw;
-	height: 5vw;
+	height: 8vh;
 	background-color: #00d000;
 	position: absolute;
 	top: 13vh;
@@ -281,7 +287,7 @@ button {
 #startBis {
 	color: black;
 	width: 5vw;
-	height: 5vw;
+	height: 8vh;
 	background-color: #00d000;
 	position: absolute;
 	top: 13vh;
@@ -295,7 +301,7 @@ button {
 #select {
 	color: black;
 	width: 28vw;
-	height: 5vw;
+	height: 8vh;
 	background-color: rgb(250, 250, 0);
 	position: absolute;
 	top: 2vh;
@@ -308,7 +314,7 @@ button {
 #prev {
 	color: black;
 	width: 5vw;
-	height: 5vw;
+	height: 8vh;
 	background-color: rgb(250, 250, 0);
 	position: absolute;
 	top: 2vh;
@@ -321,7 +327,7 @@ button {
 #suiv {
 	color: black;
 	width: 5vw;
-	height: 5vw;
+	height: 8vh;
 	background-color: rgb(250, 250, 0);
 	position: absolute;
 	top: 2vh;
@@ -351,7 +357,7 @@ button {
 #stop {
 	color: black;
 	width: 5vw;
-	height: 5vw;
+	height: 8vh;
 	background-color: rgb(250, 25, 0);
 	position: absolute;
 	top: 13vh;
@@ -365,21 +371,7 @@ button {
 #slow {
 	color: black;
 	width: 3vw;
-	height: 3vw;
-	background-color: #00d000;
-	position: absolute;
-	top: 1.5vh;
-	right: 0.5vw;
-	border: solid black 2px;
-	border-radius: 10px;
-	font-weight: bold;
-	font-size: 3vh;
-}
-
-#speed {
-	color: black;
-	width: 3vw;
-	height: 3vw;
+	height: 5vh;
 	background-color: #00d000;
 	position: absolute;
 	top: 1.5vh;
@@ -390,10 +382,24 @@ button {
 	font-size: 3vh;
 }
 
+#speed {
+	color: black;
+	width: 3vw;
+	height: 5vh;
+	background-color: #00d000;
+	position: absolute;
+	top: 1.5vh;
+	right: 0.5vw;
+	border: solid black 2px;
+	border-radius: 10px;
+	font-weight: bold;
+	font-size: 3vh;
+}
+
 #time {
 	color: black;
 	width: 17vw;
-	height: 5vw;
+	height: 8vh;
 	background-color: rgb(250, 250, 0);
 	position: absolute;
 	top: 13vh;
@@ -426,7 +432,7 @@ button {
 #nbrPerfect {
 	color: white;
 	width: 10vw;
-	height: 4.5vw;
+	height: 7.5vh;
 	position: absolute;
 	top: 13vh;
 	right: 35vw;

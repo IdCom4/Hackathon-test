@@ -85,12 +85,12 @@ $(document).ready(function() {
 		idbis += 'a';
 		if(current[0] != '0')
 		{
-			if($(this).attr("id") == "option6")
+			if($(this).attr("id") == "option7")
 			{
 				$("#" + current).removeClass("orange");
 				$("#" + current).addClass("vert");
 			}
-			else if($(this).attr("id") == "option7")
+			else if($(this).attr("id") == "option8")
 			{
 				$("#" + current).removeClass("vert");
 				$("#" + current).addClass("orange");
@@ -146,7 +146,7 @@ $(document).ready(function() {
 				else
 					fonction[y][x] = 5;
 			}
-			if($(this).attr("id") == "option6")
+			if($(this).attr("id") == "option7")
 			{
 				console.log("condition verte");
 				if(fonction[y][x] < 100)
@@ -154,7 +154,7 @@ $(document).ready(function() {
 				else if(fonction[y][x] >= 200)
 					fonction[y][x] -= 100;
 			}
-			if($(this).attr("id") == "option7")
+			if($(this).attr("id") == "option8")
 			{
 				console.log("condition orange");
 				if(fonction[y][x] >= 100 && fonction[y][x] < 200)
@@ -162,7 +162,7 @@ $(document).ready(function() {
 				else if(fonction[y][x] < 100)
 					fonction[y][x] += 200;
 			}
-			if($(this).attr("id") == "option8")
+			if($(this).attr("id") == "option6")
 			{
 				if(fonction[y][x] >= 100 && fonction[y][x] < 200)
 					fonction[y][x] = 108;
