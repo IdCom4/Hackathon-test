@@ -1361,8 +1361,12 @@ $(document).ready(function() {
 	}
 
 	$("#select").click(function () {
-		level = prompt("Entrez le numéro du niveau voulu :");
-		initLevel(1);
+		var tampon = prompt("Entrez le numéro du niveau voulu :");
+		if(tampon != null)
+		{
+			level = tampon;
+			initLevel(1);
+		}
 	});
 
 	$("#stop").click(function () {
