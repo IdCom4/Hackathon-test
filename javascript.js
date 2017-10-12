@@ -5,6 +5,9 @@ $(document).ready(function() {
 	var toDo = new Array();
 	var count = 0;
 	var interval;
+	var nbrLevel = 10;
+	var temps = 500;
+	var started = 0;
 
 	var secure = 0;
 	var stop = 0;
@@ -14,6 +17,7 @@ $(document).ready(function() {
 	var dirOrigin;
 	var pieceOrigin = new String();
 	var numPiece;
+	var perfect = new String("<span>? coups en</span><span>? fonctions</span>");
 
 	var posYtest;
 	var posXtest;
@@ -312,6 +316,8 @@ $(document).ready(function() {
 			pieceOrigin[1] = new String("00");
 			numPiece = 1;
 
+			perfect = new String("<span>1 coup en</span><span>1 fonction</span>");
+
 			gridTest[0] = new Array(0,0,0,0,0,0,0,0,0,0);
 			gridTest[1] = new Array(0,0,0,0,0,0,0,0,0,0);
 			gridTest[2] = new Array(0,0,0,0,0,0,0,0,0,0);
@@ -341,6 +347,8 @@ $(document).ready(function() {
 			pieceOrigin[0] = new String("E7");
 			pieceOrigin[1] = new String("00");
 			numPiece = 1;
+
+			perfect = new String("<span>2 coups en</span><span>1 fonction</span>");
 
 			gridTest[0] = new Array(0,0,0,0,0,0,0,0,0,0);
 			gridTest[1] = new Array(0,0,0,0,0,0,0,0,0,0);
@@ -372,6 +380,8 @@ $(document).ready(function() {
 			pieceOrigin[1] = new String("00");
 			numPiece = 1;
 
+			perfect = new String("<span>2 coups en</span><span>1 fonction</span>");
+
 			gridTest[0] = new Array(0,0,0,0,0,0,0,0,0,0);
 			gridTest[1] = new Array(0,0,0,0,0,0,0,0,0,0);
 			gridTest[2] = new Array(0,0,0,0,0,0,0,0,0,0);
@@ -401,6 +411,8 @@ $(document).ready(function() {
 			pieceOrigin[0] = new String("H8");
 			pieceOrigin[1] = new String("00");
 			numPiece = 1;
+
+			perfect = new String("<span>3 coups en</span><span>1 fonction</span>");
 
 			gridTest[0] = new Array(0,0,0,0,0,0,0,0,0,0);
 			gridTest[1] = new Array(0,0,0,0,0,0,0,0,0,0);
@@ -432,6 +444,8 @@ $(document).ready(function() {
 			pieceOrigin[1] = new String("00");
 			numPiece = 1;
 
+			perfect = new String("<span>3 coups en</span><span>1 fonction</span>");
+
 			gridTest[0] = new Array(2,1,1,1,1,1,1,1,1,2);
 			gridTest[1] = new Array(1,0,0,0,0,0,0,0,0,1);
 			gridTest[2] = new Array(1,0,2,1,1,1,1,2,0,1);
@@ -462,6 +476,8 @@ $(document).ready(function() {
 			pieceOrigin[1] = new String("00");
 			numPiece = 1;
 
+			perfect = new String("<span>8 coups en</span><span>2 fonctions</span>");
+
 			gridTest[0] = new Array(0,0,0,0,0,0,0,0,0,0);
 			gridTest[1] = new Array(0,0,0,0,0,0,0,0,0,0);
 			gridTest[2] = new Array(1,1,0,0,0,0,0,0,0,0);
@@ -491,6 +507,8 @@ $(document).ready(function() {
 			pieceOrigin[0] = new String("J10");
 			pieceOrigin[1] = new String("00");
 			numPiece = 1;
+
+			perfect = new String("<span>5 coups en</span><span>1 fonction</span>");
 		
 			gridTest[0] = new Array(0,0,0,0,0,0,0,0,1,1);
 			gridTest[1] = new Array(0,0,0,0,0,0,0,1,1,0);
@@ -522,6 +540,8 @@ $(document).ready(function() {
 			pieceOrigin[1] = new String("I7");
 			pieceOrigin[2] = new String("00");
 			numPiece = 2;
+
+			perfect = new String("<span>9 coups en</span><span>2 fonctions</span>");
 
 			gridTest[0] = new Array(0,0,0,0,0,0,0,0,0,0);
 			gridTest[1] = new Array(0,0,0,0,0,0,2,0,0,0);
@@ -560,6 +580,8 @@ $(document).ready(function() {
 			pieceOrigin[8] = new String("00");
 			numPiece = 8;
 
+			perfect = new String("<span>9 coups en</span><span>2 fonctions</span>");
+
 			gridTest[0] = new Array(2,1,2,0,0,0,0,2,1,2);
 			gridTest[1] = new Array(1,0,1,0,0,0,0,1,0,1);
 			gridTest[2] = new Array(2,1,2,1,1,1,1,2,1,2);
@@ -596,6 +618,8 @@ $(document).ready(function() {
 			pieceOrigin[7] = new String("I3");
 			pieceOrigin[8] = new String("00");
 			numPiece = 8;
+
+			perfect = new String("<span>24 coups en</span><span>5 fonctions</span>");
 
 			gridTest[0] = new Array(0,0,0,0,0,0,0,0,0,0);
 			gridTest[1] = new Array(0,0,2,1,1,1,1,1,2,0);
@@ -984,6 +1008,7 @@ $(document).ready(function() {
 		}*/
 		return 0;
 	}
+	
 	$("#addFonction").click(function() {
 		if(nbrFonction <= 9)
 		{
@@ -1010,6 +1035,7 @@ $(document).ready(function() {
 
 	function initLevel(nouv) {
 		initGrid();
+		$("#select").text("Selec. Niveau (" + level + "/" + nbrLevel + ")");
 		if(level == 2 || level == '2')
 		{
 			level = 2;
@@ -1062,6 +1088,7 @@ $(document).ready(function() {
 		}
 		if(nouv == 1)
 			initFonction();
+		$("#nbrPerfect p").html(perfect);
 		reset_html();
 	}
 
@@ -1356,6 +1383,7 @@ $(document).ready(function() {
 				$("#gagne").show();
 			else
 				$("#perdu").show();
+			started = 0;
 		}
 		count++;
 	}
@@ -1378,20 +1406,43 @@ $(document).ready(function() {
 		posYtest = find_perso('y');
 		posXtest = find_perso('x');
 		dirTest = find_dir();
+		started = 1;
 
 		showFonction();
 
 		executeFonction(1);
 		secure = 0;
-		interval = setInterval(go, 500);
+		interval = setInterval(go, temps);
 
 		$("#startBis").show();
 		$("#start").hide();
 	});
 
+	$("#speed").click(function () {
+		if(temps >= 200)
+			temps -= 100;
+		$("#time p").text((temps / 100) + "/10");
+		if(started == 1) {
+			clearInterval(interval);
+			interval = setInterval(go, temps);
+		}
+	});
+
+	$("#slow").click(function () {
+		if(temps <= 900)
+			temps += 100;
+		$("#time p").text((temps / 100) + "/10");
+		if(started == 1) {
+			clearInterval(interval);
+			interval = setInterval(go, temps);
+		}
+	});
+
 	$("#prev").click(function () {
 		reset(0);
 		level--;
+		if(level < 1)
+			level = 1;
 		console.log("level++ = " + level);
 		initLevel(1);
 	});
@@ -1399,6 +1450,8 @@ $(document).ready(function() {
 	$("#suiv").click(function () {
 		reset(0);
 		level++;
+		if(level > nbrLevel)
+			level = 1;
 		console.log("level++ = " + level);
 		initLevel(1);
 	});
