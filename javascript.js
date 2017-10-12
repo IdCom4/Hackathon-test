@@ -1001,6 +1001,7 @@ $(document).ready(function() {
 	});
 
 	$("#reset").click(function () {
+		console.log("appuie sur reset");
 		initFonction();
 		reset();
 	});

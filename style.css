@@ -1,6 +1,8 @@
 body, html, main {
 	padding: 0;
 	margin: 0;
+	background-color: rgb(60, 60, 60);
+	background-size: cover;
 }
 
 #buttons {
@@ -62,7 +64,8 @@ body, html, main {
 
 #terrain {
 	position: absolute;
-	top: 10vh;
+	z-index: 2;
+	bottom: 5vh;
 	right: 5vw;
 	width: 40vw;
 	height: 40vw;
@@ -70,7 +73,8 @@ body, html, main {
 	margin-top: 18vh;
 	display: flex;
 	flex-wrap: wrap;
-	z-index: -1;
+	z-index: 2;
+	border: solid grey 2px;
 }
 
 .piece {
@@ -87,7 +91,7 @@ body, html, main {
 }
 
 .blanc {
-	background-color: lightblue;
+	background-color: white;
 
 }
 
@@ -107,8 +111,9 @@ body, html, main {
 	position: relative;
 	width: 3vw;
 	height: 3vw;
-	background-color: lightblue;
+	background-color: white;
 	margin-right: 2vw;
+	box-shadow: 0px 0px 4px 4px black;
 }
 
 .turn {
@@ -152,15 +157,21 @@ body, html, main {
 	height: 4vw;
 }
 
+#tranche1 {
+	position: relative;
+	left: 4vw;
+}
+
 #action {
 	width: 50vw;
 	height: 100vh;
-	background-color: blue;
 }
 #options {
+	padding-top: 3vh;
 	width: 100%;
 	height: 19vh;
-	background-color: lightblue;
+	background-color: rgb(100, 100, 100);
+	border-radius: 0 0 10px 0;
 }
 #fonctions {
 	z-index: 1;
@@ -168,9 +179,9 @@ body, html, main {
 	position: absolute;
 	bottom: 0;
 	left: 0;
+	padding-top: 2vh;
 	width: 50vw;
-	height: 81vh;
-	background-color: lightblue;
+	height: 75vh;
 }
 
 .fonction {
@@ -204,15 +215,20 @@ button {
 	position: relative;
 	width: 3vw;
 	height: 3vw;
-	background-color: #bcbcbc;
+	background-color: black;
+	box-shadow: 0 0 4px 4px white;
 	/*display: flex;
 	justify-content: center;
 	align-items: center;*/
 }
 
-#tranche2 div, #option9 {
-	background-color: #bcbcbc;
-	border-radius: 10px;
+#tranche2 div {
+	position: relative;
+	left: -1vw;
+	top: 2vh;
+	background-color: black;/*#bcbcbc;*/
+	border-radius: 50%;
+	box-shadow: 0 0 4px 4px white;
 }
 
 .f-option{
@@ -222,66 +238,72 @@ button {
 }
 
 #start {
-	color: white;
-	width: 4vw;
-	height: 3vw;
+	color: black;
+	width: 5vw;
+	height: 5vw;
 	background-color: #00d000;
 	position: absolute;
-	top: 2vh;
-	right: 5vw;
+	top: 13vh;
+	right: 18vw;
 	border: none;
 	border-radius: 10px;
 	font-weight: bold;
+	font-size: 4vh;
 }
 
 #startBis {
-	color: white;
-	width: 4vw;
-	height: 3vw;
+	color: black;
+	width: 5vw;
+	height: 5vw;
 	background-color: #00d000;
+	position: absolute;
+	top: 13vh;
+	right: 18vw;
+	border: none;
+	border-radius: 10px;
+	font-weight: bold;
+	font-size: 4vh;
+}
+
+#select {
+	color: black;
+	width: 40.5vw;
+	height: 5vw;
+	background-color: rgb(250, 250, 0);
 	position: absolute;
 	top: 2vh;
 	right: 5vw;
 	border: none;
 	border-radius: 10px;
 	font-weight: bold;
-}
-
-#select {
-	color: white;
-	width: 4vw;
-	height: 3vw;
-	background-color: #00d000;
-	position: absolute;
-	top: 2vh;
-	right: 41vw;
-	border: none;
-	border-radius: 10px;
-	font-weight: bold;
+	font-size: 5vh;
 }
 
 #reset {
-	color: white;
+	color: black;
 	width: 4vw;
 	height: 3vw;
-	background-color: #00d000;
-	position: absolute;
+	background-color: rgb(250, 250, 0);
+	position: relative;
 	top: 2vh;
-	right: 15vw;
+	left: 45vw;
+	/*margin-top: 2vh;*/
+	z-index: 3;
 	border: none;
 	border-radius: 10px;
 	font-weight: bold;
 }
 
 #stop {
-	color: white;
-	width: 4vw;
-	height: 3vw;
-	background-color: #00d000;
+	color: black;
+	width: 7vw;
+	height: 5vw;
+	background-color: rgb(250, 25, 0);
 	position: absolute;
-	top: 2vh;
-	right: 10vw;
+	top: 13vh;
+	right: 25vw;
 	border: none;
 	border-radius: 10px;
 	font-weight: bold;
+	font-size: 4vh;
 }
