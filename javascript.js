@@ -908,6 +908,7 @@ $(document).ready(function() {
 			x = 0;
 			y++;
 		}
+		return -1;
 	}
 
 	function find_dir() {
@@ -949,11 +950,12 @@ $(document).ready(function() {
 		var x = 0;
 		var done = 2;
 		//var id = new String();
-		/*console.log("////////////");
-		console.log("posPersoY = " + posPersoY);
-		console.log("posPersoX = " + posPersoX);
-		//console.log("grid["+ posPersoY +"]["+ posPersoX +"] = " + grid[posPersoY][posPersoX]);
-		console.log("////////////");*/
+		// console.log("////////////");
+		// console.log("in over");
+		// console.log("posPersoY = " + posPersoY);
+		// console.log("posPersoX = " + posPersoX);
+		// //console.log("grid["+ posPersoY +"]["+ posPersoX +"] = " + grid[posPersoY][posPersoX]);
+		// console.log("////////////");
 		if(numPiece <= 0)
 			return 2;
 		if(posPersoY < 0 || posPersoX < 0 || posPersoY > 9 || posPersoX > 9)
@@ -1381,6 +1383,33 @@ $(document).ready(function() {
 
 		$("#startBis").show();
 		$("#start").hide();
+	});
+
+	$("#prev").click(function () {
+		reset(0);
+		level--;
+		console.log("level++ = " + level);
+		initLevel(1);
+	});
+
+	$("#suiv").click(function () {
+		reset(0);
+		level++;
+		console.log("level++ = " + level);
+		initLevel(1);
+	});
+
+	$("#next").click(function () {
+		reset(0);
+		$("#gagne").hide();
+		level++;
+		console.log("level++ = " + level);
+		initLevel(1);
+	});
+
+	$("#stay").click(function () {
+		reset(0);
+		$("#gagne").hide();
 	});
 
 	$(".close").click(function () {
