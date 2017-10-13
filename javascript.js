@@ -5,7 +5,7 @@ $(document).ready(function() {
 	var toDo = new Array();
 	var count = 0;
 	var interval;
-	var nbrLevel = 10;
+	var nbrLevel = 15;
 	var temps = 500;
 	var started = 0;
 
@@ -286,30 +286,7 @@ $(document).ready(function() {
 	}
 
 
-				gridTest[0] = new Array(0,0,0,0,0,0,0,0,0,0);
-			gridTest[1] = new Array(0,0,0,0,0,0,0,0,0,0);
-			gridTest[2] = new Array(0,0,0,0,0,0,0,0,0,0);
-			gridTest[3] = new Array(0,0,0,0,0,0,0,0,0,0);
-			gridTest[4] = new Array(0,0,0,0,0,0,0,0,0,0);
-			gridTest[5] = new Array(0,0,0,0,0,0,0,0,0,0);
-			gridTest[6] = new Array(0,0,0,0,0,0,0,0,0,0);
-			gridTest[7] = new Array(0,0,0,0,0,0,0,0,0,0);
-			gridTest[8] = new Array(0,0,0,0,0,0,0,0,0,0);
-			gridTest[9] = new Array(0,0,0,0,0,0,0,0,0,0);
-
-			grid[0] = new Array(0,0,0,0,0,0,0,0,0,0);
-			grid[1] = new Array(0,0,0,0,0,0,0,0,0,0);
-			grid[2] = new Array(0,0,0,0,0,0,0,0,0,0);
-			grid[3] = new Array(0,0,0,0,0,0,0,0,0,0);
-			grid[4] = new Array(0,0,0,0,0,0,0,0,0,0);
-			grid[5] = new Array(0,0,0,0,0,0,0,0,0,0);
-			grid[6] = new Array(0,0,0,0,0,0,0,0,0,0);
-			grid[7] = new Array(0,0,0,0,0,0,0,0,0,0);
-			grid[8] = new Array(0,0,0,0,0,0,0,0,0,0);
-			grid[9] = new Array(0,0,0,0,0,0,0,0,0,0);
-
-
-		function lvl1() {
+			function lvl1() {
 			posOrigin = new String("#E5");
 			dirOrigin = 2;
 			pieceOrigin[0] = new String("E6");
@@ -470,6 +447,70 @@ $(document).ready(function() {
 		}
 
 		function lvl6() {
+			posOrigin = new String("#E2");
+			dirOrigin = 2;
+			pieceOrigin[0] = new String("H9");
+			pieceOrigin[1] = new String("00");
+			numPiece = 1;
+
+			perfect = new String("<span>7 coups en</span><span>2 fonctions</span>");
+
+			gridTest[0] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[1] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[2] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[3] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[4] = new Array(0,1,1,1,1,2,0,0,0,0);
+			gridTest[5] = new Array(0,0,0,0,0,1,0,0,0,0);
+			gridTest[6] = new Array(0,0,0,0,0,1,0,0,0,0);
+			gridTest[7] = new Array(0,0,0,0,0,2,1,1,1,0);
+			gridTest[8] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[9] = new Array(0,0,0,0,0,0,0,0,0,0);
+
+			grid[0] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[1] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[2] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[3] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[4] = new Array(0,1,1,1,1,2,0,0,0,0);
+			grid[5] = new Array(0,0,0,0,0,1,0,0,0,0);
+			grid[6] = new Array(0,0,0,0,0,1,0,0,0,0);
+			grid[7] = new Array(0,0,0,0,0,2,1,1,1,0);
+			grid[8] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[9] = new Array(0,0,0,0,0,0,0,0,0,0);
+		}
+
+		function lvl7() {
+			posOrigin = new String("#I5");
+			dirOrigin = 1;
+			pieceOrigin[0] = new String("C5");
+			pieceOrigin[1] = new String("00");
+			numPiece = 1;
+
+			perfect = new String("<span>9 coups en</span><span>2 fonctions</span>");
+
+			gridTest[0] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[1] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[2] = new Array(0,0,0,0,1,1,1,1,0,0);
+			gridTest[3] = new Array(0,0,0,0,0,0,0,1,0,0);
+			gridTest[4] = new Array(0,0,0,0,0,0,0,1,0,0);
+			gridTest[5] = new Array(0,0,0,0,2,1,1,1,0,0);
+			gridTest[6] = new Array(0,0,0,0,1,0,0,0,0,0);
+			gridTest[7] = new Array(0,0,0,0,1,0,0,0,0,0);
+			gridTest[8] = new Array(0,0,0,0,1,0,0,0,0,0);
+			gridTest[9] = new Array(0,0,0,0,0,0,0,0,0,0);
+
+			grid[0] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[1] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[2] = new Array(0,0,0,0,1,1,1,1,0,0);
+			grid[3] = new Array(0,0,0,0,0,0,0,1,0,0);
+			grid[4] = new Array(0,0,0,0,0,0,0,1,0,0);
+			grid[5] = new Array(0,0,0,0,2,1,1,1,0,0);
+			grid[6] = new Array(0,0,0,0,1,0,0,0,0,0);
+			grid[7] = new Array(0,0,0,0,1,0,0,0,0,0);
+			grid[8] = new Array(0,0,0,0,1,0,0,0,0,0);
+			grid[9] = new Array(0,0,0,0,0,0,0,0,0,0);
+		}
+
+		function lvl8() {
 			posOrigin = new String("#G10");
 			dirOrigin = 4;
 			pieceOrigin[0] = new String("C1");
@@ -501,7 +542,7 @@ $(document).ready(function() {
 			grid[9] = new Array(0,0,0,0,0,0,0,0,0,0);
 		}
 
-		function lvl7() {
+		function lvl9() {
 			posOrigin = new String("#A10");
 			dirOrigin = 4;
 			pieceOrigin[0] = new String("J10");
@@ -533,7 +574,7 @@ $(document).ready(function() {
 			grid[9] = new Array(0,0,0,0,0,0,0,0,1,1);
 		}
 
-		function lvl8() {
+		function lvl10() {
 			posOrigin = new String("#E3");
 			dirOrigin = 2;
 			pieceOrigin[0] = new String("B7");
@@ -566,7 +607,7 @@ $(document).ready(function() {
 			grid[9] = new Array(0,0,0,0,0,0,0,0,0,0);
 		}
 
-		function lvl9() {
+		function lvl11() {
 			posOrigin = new String("#F3");
 			dirOrigin = 1;
 			pieceOrigin[0] = new String("A2");
@@ -605,7 +646,7 @@ $(document).ready(function() {
 			grid[9] = new Array(2,1,2,0,0,0,0,2,1,2);
 		}
 
-		function lvl10() {
+		function lvl12() {
 			posOrigin = new String("#F1");
 			dirOrigin = 2;
 			pieceOrigin[0] = new String("D6");
@@ -642,6 +683,109 @@ $(document).ready(function() {
 			grid[7] = new Array(0,0,1,0,1,0,1,1,2,0);
 			grid[8] = new Array(0,0,1,0,1,0,0,0,1,0);
 			grid[9] = new Array(0,0,0,0,1,1,1,1,1,0);
+		}
+		function lvl13() {
+			posOrigin = new String("#J1");
+			dirOrigin = 2;
+			pieceOrigin[0] = new String("H4");
+			pieceOrigin[1] = new String("H7");
+			pieceOrigin[2] = new String("E8");
+			pieceOrigin[3] = new String("F8");
+			pieceOrigin[4] = new String("C8");
+			pieceOrigin[5] = new String("C2");
+			pieceOrigin[6] = new String("C5");
+			pieceOrigin[7] = new String("D3");
+			pieceOrigin[8] = new String("H3");
+			pieceOrigin[9] = new String("00");
+			numPiece = 9;
+
+			perfect = new String("<span>14 coups en</span><span>3 fonctions</span>");
+
+			gridTest[0] = new Array(2,2,1,1,2,1,1,1,1,2);
+			gridTest[1] = new Array(1,1,0,0,1,0,0,0,0,1);
+			gridTest[2] = new Array(1,2,0,0,2,0,0,2,1,2);
+			gridTest[3] = new Array(2,1,2,0,0,0,0,0,0,1);
+			gridTest[4] = new Array(1,0,0,0,0,0,0,2,1,2);
+			gridTest[5] = new Array(1,0,0,0,0,0,0,2,1,2);
+			gridTest[6] = new Array(1,0,0,0,0,0,0,0,0,1);
+			gridTest[7] = new Array(2,1,2,2,0,0,2,0,0,1);
+			gridTest[8] = new Array(0,0,0,1,0,0,1,0,0,1);
+			gridTest[9] = new Array(1,1,1,2,1,1,2,1,1,2);
+
+			grid[0] = new Array(2,2,1,1,2,1,1,1,1,2);
+			grid[1] = new Array(1,1,0,0,1,0,0,0,0,1);
+			grid[2] = new Array(1,2,0,0,2,0,0,2,1,2);
+			grid[3] = new Array(2,1,2,0,0,0,0,0,0,1);
+			grid[4] = new Array(1,0,0,0,0,0,0,2,1,2);
+			grid[5] = new Array(1,0,0,0,0,0,0,2,1,2);
+			grid[6] = new Array(1,0,0,0,0,0,0,0,0,1);
+			grid[7] = new Array(2,1,2,2,0,0,2,0,0,1);
+			grid[8] = new Array(0,0,0,1,0,0,1,0,0,1);
+			grid[9] = new Array(1,1,1,2,1,1,2,1,1,2);
+		}
+
+		function lvl14() {
+			posOrigin = new String("#H2");
+			dirOrigin = 2;
+			pieceOrigin[0] = new String("B9");
+			pieceOrigin[1] = new String("00");
+			numPiece = 1;
+
+			perfect = new String("<span>7 coups en</span><span>1 fonction</span>");
+
+			gridTest[0] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[1] = new Array(0,0,0,0,0,0,0,1,1,0);
+			gridTest[2] = new Array(0,0,0,0,0,0,0,1,0,0);
+			gridTest[3] = new Array(0,0,0,0,0,0,1,1,0,0);
+			gridTest[4] = new Array(0,0,0,0,0,0,1,0,0,0);
+			gridTest[5] = new Array(0,0,0,0,0,1,1,0,0,0);
+			gridTest[6] = new Array(0,0,0,0,0,1,0,0,0,0);
+			gridTest[7] = new Array(0,1,1,1,1,2,0,0,0,0);
+			gridTest[8] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[9] = new Array(0,0,0,0,0,0,0,0,0,0);
+
+			grid[0] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[1] = new Array(0,0,0,0,0,0,0,1,1,0);
+			grid[2] = new Array(0,0,0,0,0,0,0,1,0,0);
+			grid[3] = new Array(0,0,0,0,0,0,1,1,0,0);
+			grid[4] = new Array(0,0,0,0,0,0,1,0,0,0);
+			grid[5] = new Array(0,0,0,0,0,1,1,0,0,0);
+			grid[6] = new Array(0,0,0,0,0,1,0,0,0,0);
+			grid[7] = new Array(0,1,1,1,1,2,0,0,0,0);
+			grid[8] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[9] = new Array(0,0,0,0,0,0,0,0,0,0);
+		}
+
+		function lvl15() {
+			posOrigin = new String("#B2");
+			dirOrigin = 2;
+			pieceOrigin[0] = new String("I4");
+			pieceOrigin[1] = new String("00");
+			numPiece = 1;
+
+			perfect = new String("<span>17 coups en</span><span>3 fonctions</span>");
+
+			gridTest[0] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[1] = new Array(0,1,1,1,2,0,0,0,0,0);
+			gridTest[2] = new Array(0,0,0,0,1,1,0,0,0,0);
+			gridTest[3] = new Array(0,0,0,0,0,1,1,0,0,0);
+			gridTest[4] = new Array(0,0,0,0,0,0,1,2,0,0);
+			gridTest[5] = new Array(0,0,0,0,0,0,0,1,0,0);
+			gridTest[6] = new Array(0,0,0,0,1,1,1,2,0,0);
+			gridTest[7] = new Array(0,0,0,1,1,0,0,0,0,0);
+			gridTest[8] = new Array(0,0,0,1,0,0,0,0,0,0);
+			gridTest[9] = new Array(0,0,0,0,0,0,0,0,0,0);
+
+			grid[0] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[1] = new Array(0,1,1,1,2,0,0,0,0,0);
+			grid[2] = new Array(0,0,0,0,1,1,0,0,0,0);
+			grid[3] = new Array(0,0,0,0,0,1,1,0,0,0);
+			grid[4] = new Array(0,0,0,0,0,0,1,2,0,0);
+			grid[5] = new Array(0,0,0,0,0,0,0,1,0,0);
+			grid[6] = new Array(0,0,0,0,1,1,1,2,0,0);
+			grid[7] = new Array(0,0,0,1,1,0,0,0,0,0);
+			grid[8] = new Array(0,0,0,1,0,0,0,0,0,0);
+			grid[9] = new Array(0,0,0,0,0,0,0,0,0,0);
 		}
 
 	function initFonction () {
@@ -1081,11 +1225,37 @@ $(document).ready(function() {
 			level = 10;
 			lvl10();
 		}
+		else if(level == 11 || level == '11')
+		{
+			level = 11;
+			lvl11();
+		}
+		else if(level == 12 || level == '12')
+		{
+			level = 12;
+			lvl12();
+		}
+		else if(level == 13 || level == '13')
+		{
+			level = 13;
+			lvl13();
+		}
+		else if(level == 14 || level == '14')
+		{
+			level = 14;
+			lvl14();
+		}
+		else if(level == 15 || level == '15')
+		{
+			level = 15;
+			lvl15();
+		}
 		else
 		{
 			lvl1();
 			level = 1;
 		}
+		
 		if(nouv == 1)
 			initFonction();
 		$("#nbrPerfect p").html(perfect);
@@ -1442,7 +1612,7 @@ $(document).ready(function() {
 		reset(0);
 		level--;
 		if(level < 1)
-			level = 1;
+			level = nbrLevel;
 		console.log("level++ = " + level);
 		initLevel(1);
 	});

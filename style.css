@@ -507,6 +507,7 @@ button {
 		height: 4vh;
 		left: 74vw;
 		width: 10vw;
+		font-size: 3.2vh;
 	}
 	#terrain {
 		width: 80vw;
