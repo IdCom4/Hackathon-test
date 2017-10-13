@@ -1562,7 +1562,10 @@ $(document).ready(function() {
 		var tampon = prompt("Entrez le numéro du niveau voulu :");
 		if(tampon != null)
 		{
-			level = tampon;
+			if(tampon > nbrLevel)
+				level = 1;
+			else
+				level = tampon;
 			initLevel(1);
 		}
 	});
