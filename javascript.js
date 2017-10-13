@@ -1421,7 +1421,7 @@ $(document).ready(function() {
 	$("#speed").click(function () {
 		if(temps >= 200)
 			temps -= 100;
-		$("#time p").text((temps / 100) + "/10");
+		$("#time p").text((11 - temps / 100) + "/10");
 		if(started == 1) {
 			clearInterval(interval);
 			interval = setInterval(go, temps);
@@ -1431,7 +1431,7 @@ $(document).ready(function() {
 	$("#slow").click(function () {
 		if(temps <= 900)
 			temps += 100;
-		$("#time p").text((temps / 100) + "/10");
+		$("#time p").text((11 - temps / 100) + "/10");
 		if(started == 1) {
 			clearInterval(interval);
 			interval = setInterval(go, temps);
