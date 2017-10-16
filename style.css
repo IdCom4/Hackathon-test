@@ -451,7 +451,7 @@ button {
 	margin-top: 0;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1000px) {
 	#action {
 		position: absolute;
 		top: calc(30vh + 80vw);
@@ -534,7 +534,7 @@ button {
 	}
 	#suiv {
 		width: 8vw;
-		right: 6.5vw;
+		right: 10vw;
 		font-size: 4vh;
 	}
 	#nbrPerfect {
