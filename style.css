@@ -439,7 +439,7 @@ button {
 	border: solid white 2px;
 	/*border-radius: 10px;*/
 	font-weight: bold;
-	font-size: 1.5vw;
+	font-size: 1.3vw;
 }
 
 #nbrPerfect p {
@@ -451,7 +451,7 @@ button {
 	margin-top: 0;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 650px) {
 	#action {
 		position: absolute;
 		top: calc(30vh + 80vw);
@@ -459,15 +459,15 @@ button {
 		width: 100%;
 	}
 	.option {
-		width: 5.5vw;
-		height: 5.5vw;
+		width: 6.2vw;
+		height: 6.2vw;
 	}
 	.fonction {
-		width: calc(5.5vw * 15);
+		width: calc(6.2vw * 15);
 	}
 	.caseF, .f-header {
-		width: 5.5vw;
-		height: 5.5vw;
+		width: 6.2vw;
+		height: 6.2vw;
 	}
 	.caseF {
 		background-color: white;
@@ -486,7 +486,7 @@ button {
 		margin-top: 4vh;
 	}
 	#fonctions {
-		left: 7vw;
+		left: 1vw;
 		width: 90%;
 	}
 	#buttons button {
@@ -559,7 +559,7 @@ button {
 	#time p {
 		top: 1vw;
 		left: 15vw;
-		font-size: 4vh;
+		font-size: 3.5vh;
 	}
 	#start, #startBis {
 		width: 10vw;
