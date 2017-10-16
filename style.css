@@ -616,6 +616,13 @@ button {
 		left: 69vw;
 		font-size: 3.5vh;
 	}
+	.vert {
+		background-color: #00d000 !important;
+	}
+
+	.orange {
+		background-color: #e29500 !important;
+	}
 }
 @media screen and (max-width : 640px) {
 	#gagne div, #perdu div {
@@ -781,5 +788,13 @@ button {
 		width: 10vw;
 		left: 69vw;
 		font-size: 3.5vh;
+	}
+
+	.vert {
+		background-color: #00d000 !important;
+	}
+
+	.orange {
+		background-color: #e29500 !important;
 	}
 }
