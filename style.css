@@ -452,6 +452,51 @@ button {
 }
 
 @media (orientation: portrait) and (max-device-width : 700px) {
+	#gagne div, #perdu div {
+		position: absolute;
+		width: 80vw;
+		height: 20vh;
+		top: 2vh;
+		left: 10vw;
+		background-color: white;
+
+		border-radius: 10px;
+	}
+
+	#gagne, #perdu {
+		height: calc(30vh + 80vw);
+	}
+
+	.close {
+		font-size: 3vh !important;
+		width: 10vw !important;
+		height: 10vw !important;
+	}
+
+	#next, #stay {
+		font-size: 2vh;
+	}
+
+	#gagne h1 {
+		position: absolute;
+		top: 2vh;
+		left: 30vw;
+		margin: 0;
+		background-color: white;
+
+		border-radius: 10px;
+		font-size: 5vh;
+	}
+	#perdu h1 {
+		position: absolute;
+		top: 7vh;
+		left: 30vw;
+		margin: 0;
+		background-color: white;
+
+		border-radius: 10px;
+		font-size: 5vh;
+	}
 	#action {
 		position: absolute;
 		top: calc(30vh + 80vw);
@@ -573,6 +618,51 @@ button {
 	}
 }
 @media screen and (max-width : 640px) {
+	#gagne div, #perdu div {
+		position: absolute;
+		width: 80vw;
+		height: 20vh;
+		top: 2vh;
+		left: 10vw;
+		background-color: white;
+
+		border-radius: 10px;
+	}
+
+	#gagne, #perdu {
+		height: calc(30vh + 80vw);
+	}
+
+	.close {
+		font-size: 3vh !important;
+		width: 10vw !important;
+		height: 10vw !important;
+	}
+
+	#next, #stay {
+		font-size: 2vh;
+	}
+
+	#gagne h1 {
+		position: absolute;
+		top: 2vh;
+		left: 30vw;
+		margin: 0;
+		background-color: white;
+
+		border-radius: 10px;
+		font-size: 5vh;
+	}
+	#perdu h1 {
+		position: absolute;
+		top: 7vh;
+		left: 30vw;
+		margin: 0;
+		background-color: white;
+
+		border-radius: 10px;
+		font-size: 5vh;
+	}
 	#action {
 		position: absolute;
 		top: calc(30vh + 80vw);
