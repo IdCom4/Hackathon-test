@@ -451,7 +451,7 @@ button {
 	margin-top: 0;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
 	#action {
 		position: absolute;
 		top: calc(30vh + 80vw);
@@ -559,7 +559,7 @@ button {
 	#time p {
 		top: 1vw;
 		left: 15vw;
-		font-size: 3.5vh;
+		font-size: 3.3vh;
 	}
 	#start, #startBis {
 		width: 10vw;
