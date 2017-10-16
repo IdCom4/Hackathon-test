@@ -435,7 +435,7 @@
 			pieceOrigin[9] = new String("00");
 			numPiece = 9;
 
-			perfect = new String("<span>14 coups en</span><span>3 fonctions</span>");
+			perfect = new String("<span>12 coups en</span><span>1 fonction</span>");
 
 			gridTest[0] = new Array(2,2,1,1,2,1,1,1,1,2);
 			gridTest[1] = new Array(1,1,0,0,1,0,0,0,0,1);
