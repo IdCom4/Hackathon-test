@@ -1,4 +1,18 @@
-body, html, main {
+body {
+	diplay: flex;
+	justify-content: center;
+	padding: 10%;
+}
+
+div {
+	diplay: flex;
+	justify-content: center;
+	align-items: center;
+	border: solid red 1px;
+	padding: 10px;
+}
+
+/*body, html, main {
 	padding: 0;
 	margin: 0;
 	background-color: rgb(60, 60, 60);
@@ -101,8 +115,8 @@ body, html, main {
 	flex-wrap: wrap;
 	z-index: 2;
 	border: solid grey 2px;
-	/*display: none;*/
-}
+	/*display: none; à laisser en commentaire*/
+/*}*/
 /*.order {
 	/*display: flex;
 	justify-content: center;
@@ -117,9 +131,9 @@ body, html, main {
 	margin: 0;
 	font-size: 1vw;
 	font-weight: bold;
-}*/
+} à laisser en commentaire*/
 
-.piece {
+/*.piece {
 	width: 2vw;
 	height: 2vw;
 	border-radius: 50%;
@@ -199,8 +213,8 @@ body, html, main {
 .case {
 	/*display: flex;
 	justify-content: center;
-	align-items: center;*/
-	position: relative;
+	align-items: center; à laisser en commentaire*/
+	/*position: relative;
 	width: 4vw;
 	height: 4vw;
 }
@@ -232,8 +246,8 @@ body, html, main {
 
 #action {
 	width: 50vw;
-	/*height: 100vh;*/
-}
+	/*height: 100vh; à laisser en commentaire*/
+/*}
 #options {
 	padding-top: 3vh;
 	width: 100%;
@@ -243,8 +257,8 @@ body, html, main {
 }
 #fonctions {
 	z-index: 1;
-	/*border-top: solid grey 1px;*/
-	position: absolute;
+	/*border-top: solid grey 1px; à laisser en commentaire*/
+	/*position: absolute;
 	top: 24vh;
 	left: 0;
 	padding-top: 2vh;
@@ -287,14 +301,14 @@ button {
 	box-shadow: 0 0 4px 4px white;
 	/*display: flex;
 	justify-content: center;
-	align-items: center;*/
-}
+	align-items: center; à laisser en commentaire*/
+/*}
 
 #tranche2 div {
 	position: relative;
 	left: -1vw;
 	top: 2vh;
-	background-color: black;/*#bcbcbc;*/
+	background-color: black;
 	border-radius: 50%;
 	box-shadow: 0 0 4px 4px white;
 }
@@ -381,8 +395,8 @@ button {
 	position: relative;
 	top: -2vh;
 	left: 44vw;
-	/*margin-top: 2vh;*/
-	z-index: 3;
+	/*margin-top: 2vh; à laisser en commentaire*/
+	/*z-index: 3;
 	border: none;
 	border-radius: 10px;
 	font-weight: bold;
@@ -472,8 +486,8 @@ button {
 	top: 13vh;
 	right: 35vw;
 	border: solid white 2px;
-	/*border-radius: 10px;*/
-	font-weight: bold;
+	/*border-radius: 10px; à laisser en commentaire*/
+	/*font-weight: bold;
 	font-size: 1.3vw;
 }
 
@@ -847,4 +861,4 @@ button {
 	.orange {
 		background-color: #e29500 !important;
 	}
-}
+}*/
