@@ -27,7 +27,7 @@ body, html, main {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 100vw;
+	width: 100%;
 	height: 100vh;
 	background-color: rgba(0, 0, 0, 0.5);
 }
@@ -103,6 +103,21 @@ body, html, main {
 	border: solid grey 2px;
 	/*display: none;*/
 }
+/*.order {
+	/*display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 1.5vw;
+	height: 1.5vw;
+	background-color: rgba(50, 50, 50, 0.4);
+	border-radius: 50%;*/
+	/*position: relative;
+	left: 0.5vw;
+	top: 0.5vw;
+	margin: 0;
+	font-size: 1vw;
+	font-weight: bold;
+}*/
 
 .piece {
 	width: 2vw;
@@ -122,8 +137,12 @@ body, html, main {
 
 }
 
+.violet {
+	background-color: violet;
+}
+
 .bleu {
-	background-color: #5c98f9;
+	background-color: #44d0f9;
 }
 
 .vert {
@@ -139,14 +158,27 @@ body, html, main {
 	width: 3vw;
 	height: 3vw;
 	background-color: white;
-	margin-right: 2vw;
+	margin-right: 1vw;
 	box-shadow: 0px 0px 4px 4px black;
 }
 
-#option7, #option8 {
+#option4 {
+	color: #00d000;
+	border: solid white 1px;
+}
+#option5 {
+	color: #e29500;
+	border: solid white 1px;
+}
+#option20 {
+	color: #44d0f9;
+	border: solid white 1px;
+}
+
+#option7, #option8, #option8-1 {
 	transform: rotate(-45deg);
 	position: relative;
-	left: 5vw;
+	left: 3vw;
 	box-shadow: 0px 0px 2px 2px white;
 }
 
@@ -154,7 +186,7 @@ body, html, main {
 	transform: rotate(-90deg);
 }
 
-.option img, .caseF img, .case img, .f-header img {
+.option img, .caseF img, .case img, .f-header img, .option i, .caseF i {
 	position: absolute;
 	margin-top: 10%;
 	margin-left: 10%;
@@ -165,6 +197,9 @@ body, html, main {
 }
 
 .case {
+	/*display: flex;
+	justify-content: center;
+	align-items: center;*/
 	position: relative;
 	width: 4vw;
 	height: 4vw;
@@ -178,7 +213,7 @@ body, html, main {
 	box-shadow: 0 0 2px 1px black !important;
 }
 
-.orange, .vert, .caseF, .f-header, .bleu {
+.orange, .vert, .caseF, .f-header, .bleu, .violet {
 	box-shadow: 0 0 1px black;
 }
 
@@ -602,9 +637,9 @@ button {
 		height: 5vh;
 	}
 	#time p {
-		top: 1vw;
+		top: 2vw;
 		left: 15vw;
-		font-size: 3vh;
+		font-size: 2.7vh;
 	}
 	#start, #startBis {
 		width: 10vw;
@@ -616,6 +651,14 @@ button {
 		left: 69vw;
 		font-size: 3.5vh;
 	}
+	.violet {
+		background-color: violet !important;
+	}
+
+	.bleu {
+		background-color: #44d0f9 !important;
+	}
+
 	.vert {
 		background-color: #00d000 !important;
 	}
@@ -775,9 +818,9 @@ button {
 		height: 5vh;
 	}
 	#time p {
-		top: 1vw;
+		top: 2vw;
 		left: 15vw;
-		font-size: 3vh;
+		font-size: 2.7vh;
 	}
 	#start, #startBis {
 		width: 10vw;
@@ -788,6 +831,13 @@ button {
 		width: 10vw;
 		left: 69vw;
 		font-size: 3.5vh;
+	}
+	.violet {
+		background-color: violet !important;
+	}
+
+	.bleu {
+		background-color: #44d0f9 !important;
 	}
 
 	.vert {

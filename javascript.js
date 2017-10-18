@@ -3,21 +3,27 @@
 $(document).ready(function() {
 	var grid = new Array();
 	var toDo = new Array();
+	toDo[0] = new String('0');
 	var count = 0;
 	var interval;
-	var nbrLevel = 15;
+	var nbrLevel = 16;
 	var temps = 500;
 	var started = 0;
 
 	var secure = 0;
 	var stop = 0;
 	var level = 1;
+	var move = 0;
 
 	var posOrigin = new String();
 	var dirOrigin;
 	var pieceOrigin = new String();
 	var numPiece;
 	var perfect = new String("<span>? coups en</span><span>? fonctions</span>");
+	var movePlat = false;
+	var pathLong = 0;
+	var path = new Array();
+	path[0] = new String("00");
 
 	var posYtest;
 	var posXtest;
@@ -72,6 +78,7 @@ $(document).ready(function() {
 			$(this).addClass("white");
 			$(this).removeClass("vert");
 			$(this).removeClass("orange");
+			$(this).removeClass("bleu");
 
 			fonction[getFonction(current[1], 'a')][getFonction(current[3], idbis[4])] = 0;
 		}
@@ -88,12 +95,20 @@ $(document).ready(function() {
 			if($(this).attr("id") == "option7")
 			{
 				$("#" + current).removeClass("orange");
+				$("#" + current).removeClass("bleu");
 				$("#" + current).addClass("vert");
 			}
 			else if($(this).attr("id") == "option8")
 			{
 				$("#" + current).removeClass("vert");
+				$("#" + current).removeClass("bleu");
 				$("#" + current).addClass("orange");
+			}
+			else if($(this).attr("id") == "option8-1")
+			{
+				$("#" + current).removeClass("vert");
+				$("#" + current).removeClass("orange");
+				$("#" + current).addClass("bleu");
 			}
 			else
 			{
@@ -105,8 +120,10 @@ $(document).ready(function() {
 			{
 				if(fonction[y][x] >= 100 && fonction[y][x] < 200)
 					fonction[y][x] = 101;
-				else if(fonction[y][x] >= 200)
+				else if(fonction[y][x] >= 200 && fonction[y][x] < 300)
 					fonction[y][x] = 201;
+				else if(fonction[y][x] >= 300)
+					fonction[y][x] = 301;
 				else
 					fonction[y][x] = 1;
 			}
@@ -114,8 +131,10 @@ $(document).ready(function() {
 			{
 				if(fonction[y][x] >= 100 && fonction[y][x] < 200)
 					fonction[y][x] = 102;
-				else if(fonction[y][x] >= 200)
+				else if(fonction[y][x] >= 200 && fonction[y][x] < 300)
 					fonction[y][x] = 202;
+				else if(fonction[y][x] >= 300)
+					fonction[y][x] = 302;
 				else
 					fonction[y][x] = 2;
 			}
@@ -123,8 +142,10 @@ $(document).ready(function() {
 			{
 				if(fonction[y][x] >= 100 && fonction[y][x] < 200)
 					fonction[y][x] = 103;
-				else if(fonction[y][x] >= 200)
+				else if(fonction[y][x] >= 200 && fonction[y][x] < 300)
 					fonction[y][x] = 203;
+				else if(fonction[y][x] >= 300)
+					fonction[y][x] = 303;
 				else
 					fonction[y][x] = 3;
 			}
@@ -132,8 +153,10 @@ $(document).ready(function() {
 			{
 				if(fonction[y][x] >= 100 && fonction[y][x] < 200)
 					fonction[y][x] = 104;
-				else if(fonction[y][x] >= 200)
+				else if(fonction[y][x] >= 200 && fonction[y][x] < 300)
 					fonction[y][x] = 204;
+				else if(fonction[y][x] >= 300)
+					fonction[y][x] = 304;
 				else
 					fonction[y][x] = 4;
 			}
@@ -141,16 +164,31 @@ $(document).ready(function() {
 			{
 				if(fonction[y][x] >= 100 && fonction[y][x] < 200)
 					fonction[y][x] = 105;
-				else if(fonction[y][x] >= 200)
+				else if(fonction[y][x] >= 200 && fonction[y][x] < 300)
 					fonction[y][x] = 205;
+				else if(fonction[y][x] >= 300)
+					fonction[y][x] = 305;
 				else
 					fonction[y][x] = 5;
+			}
+			if($(this).attr("id") == "option20")
+			{
+				if(fonction[y][x] >= 100 && fonction[y][x] < 200)
+					fonction[y][x] = 120;
+				else if(fonction[y][x] >= 200 && fonction[y][x] < 300)
+					fonction[y][x] = 220;
+				else if(fonction[y][x] >= 300)
+					fonction[y][x] = 320;
+				else
+					fonction[y][x] = 20;
 			}
 			if($(this).attr("id") == "option7")
 			{
 				console.log("condition verte");
 				if(fonction[y][x] < 100)
 					fonction[y][x] += 100;
+				else if(fonction[y][x] >= 300)
+					fonction[y][x] -= 200;
 				else if(fonction[y][x] >= 200)
 					fonction[y][x] -= 100;
 			}
@@ -159,15 +197,31 @@ $(document).ready(function() {
 				console.log("condition orange");
 				if(fonction[y][x] >= 100 && fonction[y][x] < 200)
 					fonction[y][x] += 100;
+				else if(fonction[y][x] >= 300)
+					fonction[y][x] -= 100;
 				else if(fonction[y][x] < 100)
 					fonction[y][x] += 200;
+			}
+			if($(this).attr("id") == "option8-1")
+			{
+				console.log("condition bleu");
+				if(fonction[y][x] >= 100 && fonction[y][x] < 200)
+					fonction[y][x] = 120;
+				else if(fonction[y][x] >= 200 && fonction[y][x] < 300)
+					fonction[y][x] = 220;
+				else if(fonction[y][x] >= 300)
+					fonction[y][x] = 320;
+				else
+					fonction[y][x] = 9;
 			}
 			if($(this).attr("id") == "option6")
 			{
 				if(fonction[y][x] >= 100 && fonction[y][x] < 200)
 					fonction[y][x] = 108;
-				else if(fonction[y][x] >= 200)
+				else if(fonction[y][x] >= 200 && fonction[y][x] < 300)
 					fonction[y][x] = 208;
+				else if(fonction[y][x] >= 300)
+					fonction[y][x] = 308;
 				else
 					fonction[y][x] = 8;
 			}
@@ -175,8 +229,10 @@ $(document).ready(function() {
 			{
 				if(fonction[y][x] >= 100 && fonction[y][x] < 200)
 					fonction[y][x] = 109;
-				else if(fonction[y][x] >= 200)
+				else if(fonction[y][x] >= 200 && fonction[y][x] < 300)
 					fonction[y][x] = 209;
+				else if(fonction[y][x] >= 300)
+					fonction[y][x] = 309;
 				else
 					fonction[y][x] = 9;
 			}
@@ -184,8 +240,10 @@ $(document).ready(function() {
 			{
 				if(fonction[y][x] >= 100 && fonction[y][x] < 200)
 					fonction[y][x] = 110;
-				else if(fonction[y][x] >= 200)
+				else if(fonction[y][x] >= 200 && fonction[y][x] < 300)
 					fonction[y][x] = 210;
+				else if(fonction[y][x] >= 300)
+					fonction[y][x] = 310;
 				else
 					fonction[y][x] = 10;
 			}
@@ -193,8 +251,10 @@ $(document).ready(function() {
 			{
 				if(fonction[y][x] >= 100 && fonction[y][x] < 200)
 					fonction[y][x] = 111;
-				else if(fonction[y][x] >= 200)
+				else if(fonction[y][x] >= 200 && fonction[y][x] < 300)
 					fonction[y][x] = 211;
+				else if(fonction[y][x] >= 300)
+					fonction[y][x] = 311;
 				else
 					fonction[y][x] = 11;
 			}
@@ -202,8 +262,10 @@ $(document).ready(function() {
 			{
 				if(fonction[y][x] >= 100 && fonction[y][x] < 200)
 					fonction[y][x] = 112;
-				else if(fonction[y][x] >= 200)
+				else if(fonction[y][x] >= 200 && fonction[y][x] < 300)
 					fonction[y][x] = 212;
+				else if(fonction[y][x] >= 300)
+					fonction[y][x] = 312;
 				else
 					fonction[y][x] = 12;
 			}
@@ -211,8 +273,10 @@ $(document).ready(function() {
 			{
 				if(fonction[y][x] >= 100 && fonction[y][x] < 200)
 					fonction[y][x] = 113;
-				else if(fonction[y][x] >= 200)
+				else if(fonction[y][x] >= 200 && fonction[y][x] < 300)
 					fonction[y][x] = 213;
+				else if(fonction[y][x] >= 300)
+					fonction[y][x] = 313;
 				else
 					fonction[y][x] = 13;
 			}
@@ -220,8 +284,10 @@ $(document).ready(function() {
 			{
 				if(fonction[y][x] >= 100 && fonction[y][x] < 200)
 					fonction[y][x] = 114;
-				else if(fonction[y][x] >= 200)
+				else if(fonction[y][x] >= 200 && fonction[y][x] < 300)
 					fonction[y][x] = 214;
+				else if(fonction[y][x] >= 300)
+					fonction[y][x] = 314;
 				else
 					fonction[y][x] = 14;
 			}
@@ -229,8 +295,10 @@ $(document).ready(function() {
 			{
 				if(fonction[y][x] >= 100 && fonction[y][x] < 200)
 					fonction[y][x] = 115;
-				else if(fonction[y][x] >= 200)
+				else if(fonction[y][x] >= 200 && fonction[y][x] < 300)
 					fonction[y][x] = 215;
+				else if(fonction[y][x] >= 300)
+					fonction[y][x] = 315;
 				else
 					fonction[y][x] = 15;
 			}
@@ -238,8 +306,10 @@ $(document).ready(function() {
 			{
 				if(fonction[y][x] >= 100 && fonction[y][x] < 200)
 					fonction[y][x] = 116;
-				else if(fonction[y][x] >= 200)
+				else if(fonction[y][x] >= 200 && fonction[y][x] < 300)
 					fonction[y][x] = 216;
+				else if(fonction[y][x] >= 300)
+					fonction[y][x] = 316;
 				else
 					fonction[y][x] = 16;
 			}
@@ -247,8 +317,10 @@ $(document).ready(function() {
 			{
 				if(fonction[y][x] >= 100 && fonction[y][x] < 200)
 					fonction[y][x] = 117;
-				else if(fonction[y][x] >= 200)
+				else if(fonction[y][x] >= 200 && fonction[y][x] < 300)
 					fonction[y][x] = 217;
+				else if(fonction[y][x] >= 300)
+					fonction[y][x] = 317;
 				else
 					fonction[y][x] = 17;
 			}
@@ -256,8 +328,10 @@ $(document).ready(function() {
 			{
 				if(fonction[y][x] >= 100 && fonction[y][x] < 200)
 					fonction[y][x] = 118;
-				else if(fonction[y][x] >= 200)
+				else if(fonction[y][x] >= 200 && fonction[y][x] < 300)
 					fonction[y][x] = 218;
+				else if(fonction[y][x] >= 300)
+					fonction[y][x] = 318;
 				else
 					fonction[y][x] = 18;
 			}
@@ -285,38 +359,72 @@ $(document).ready(function() {
 		}
 	}
 
-
-			function lvl1() {
-			posOrigin = new String("#E5");
-			dirOrigin = 2;
-			pieceOrigin[0] = new String("E6");
+		function lvl1() {
+			posOrigin = new String("#I7");
+			dirOrigin = 4;
+			pieceOrigin[0] = new String("C7");
 			pieceOrigin[1] = new String("00");
 			numPiece = 1;
+
+			movePlat = false;
 
 			perfect = new String("<span>1 coup en</span><span>1 fonction</span>");
 
 			gridTest[0] = new Array(0,0,0,0,0,0,0,0,0,0);
 			gridTest[1] = new Array(0,0,0,0,0,0,0,0,0,0);
-			gridTest[2] = new Array(0,0,0,0,0,0,0,0,0,0);
-			gridTest[3] = new Array(0,0,0,0,0,0,0,0,0,0);
-			gridTest[4] = new Array(0,0,0,0,1,1,0,0,0,0);
-			gridTest[5] = new Array(0,0,0,0,0,0,0,0,0,0);
-			gridTest[6] = new Array(0,0,0,0,0,0,0,0,0,0);
-			gridTest[7] = new Array(0,0,0,0,0,0,0,0,0,0);
-			gridTest[8] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[2] = new Array(0,0,0,0,0,0,1,0,0,0);
+			gridTest[3] = new Array(0,0,0,0,0,0,1,0,0,0);
+			gridTest[4] = new Array(0,0,0,0,0,0,1,0,0,0);
+			gridTest[5] = new Array(0,0,0,1,1,1,2,0,0,0);
+			gridTest[6] = new Array(0,0,0,1,0,0,0,0,0,0);
+			gridTest[7] = new Array(0,0,0,1,0,0,0,0,0,0);
+			gridTest[8] = new Array(0,0,0,1,1,1,1,0,0,0);
 			gridTest[9] = new Array(0,0,0,0,0,0,0,0,0,0);
 
 			grid[0] = new Array(0,0,0,0,0,0,0,0,0,0);
 			grid[1] = new Array(0,0,0,0,0,0,0,0,0,0);
-			grid[2] = new Array(0,0,0,0,0,0,0,0,0,0);
-			grid[3] = new Array(0,0,0,0,0,0,0,0,0,0);
-			grid[4] = new Array(0,0,0,0,1,1,0,0,0,0);
-			grid[5] = new Array(0,0,0,0,0,0,0,0,0,0);
-			grid[6] = new Array(0,0,0,0,0,0,0,0,0,0);
-			grid[7] = new Array(0,0,0,0,0,0,0,0,0,0);
-			grid[8] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[2] = new Array(0,0,0,0,0,0,1,0,0,0);
+			grid[3] = new Array(0,0,0,0,0,0,1,0,0,0);
+			grid[4] = new Array(0,0,0,0,0,0,1,0,0,0);
+			grid[5] = new Array(0,0,0,1,1,1,2,0,0,0);
+			grid[6] = new Array(0,0,0,1,0,0,0,0,0,0);
+			grid[7] = new Array(0,0,0,1,0,0,0,0,0,0);
+			grid[8] = new Array(0,0,0,1,1,1,1,0,0,0);
 			grid[9] = new Array(0,0,0,0,0,0,0,0,0,0);
 		}
+		// function lvl1() {
+		// 	posOrigin = new String("#E5");
+		// 	dirOrigin = 2;
+		// 	pieceOrigin[0] = new String("E6");
+		// 	pieceOrigin[1] = new String("00");
+		// 	numPiece = 1;
+
+		// 	movePlat = false;
+
+		// 	perfect = new String("<span>1 coup en</span><span>1 fonction</span>");
+
+		// 	gridTest[0] = new Array(0,0,0,0,0,0,0,0,0,0);
+		// 	gridTest[1] = new Array(0,0,0,0,0,0,0,0,0,0);
+		// 	gridTest[2] = new Array(0,0,0,0,0,0,0,0,0,0);
+		// 	gridTest[3] = new Array(0,0,0,0,0,0,0,0,0,0);
+		// 	gridTest[4] = new Array(0,0,0,0,1,1,0,0,0,0);
+		// 	gridTest[5] = new Array(0,0,0,0,0,0,0,0,0,0);
+		// 	gridTest[6] = new Array(0,0,0,0,0,0,0,0,0,0);
+		// 	gridTest[7] = new Array(0,0,0,0,0,0,0,0,0,0);
+		// 	gridTest[8] = new Array(0,0,0,0,0,0,0,0,0,0);
+		// 	gridTest[9] = new Array(0,0,0,0,0,0,0,0,0,0);
+
+		// 	grid[0] = new Array(0,0,0,0,0,0,0,0,0,0);
+		// 	grid[1] = new Array(0,0,0,0,0,0,0,0,0,0);
+		// 	grid[2] = new Array(0,0,0,0,0,0,0,0,0,0);
+		// 	grid[3] = new Array(0,0,0,0,0,0,0,0,0,0);
+		// 	grid[4] = new Array(0,0,0,0,1,1,0,0,0,0);
+		// 	grid[5] = new Array(0,0,0,0,0,0,0,0,0,0);
+		// 	grid[6] = new Array(0,0,0,0,0,0,0,0,0,0);
+		// 	grid[7] = new Array(0,0,0,0,0,0,0,0,0,0);
+		// 	grid[8] = new Array(0,0,0,0,0,0,0,0,0,0);
+		// 	grid[9] = new Array(0,0,0,0,0,0,0,0,0,0);
+		// }
 
 		function lvl2() {
 			posOrigin = new String("#E5");
@@ -324,6 +432,8 @@ $(document).ready(function() {
 			pieceOrigin[0] = new String("E7");
 			pieceOrigin[1] = new String("00");
 			numPiece = 1;
+
+			movePlat = false;
 
 			perfect = new String("<span>2 coups en</span><span>1 fonction</span>");
 
@@ -357,6 +467,8 @@ $(document).ready(function() {
 			pieceOrigin[1] = new String("00");
 			numPiece = 1;
 
+			movePlat = false;
+
 			perfect = new String("<span>2 coups en</span><span>1 fonction</span>");
 
 			gridTest[0] = new Array(0,0,0,0,0,0,0,0,0,0);
@@ -388,6 +500,8 @@ $(document).ready(function() {
 			pieceOrigin[0] = new String("H8");
 			pieceOrigin[1] = new String("00");
 			numPiece = 1;
+
+			movePlat = false;
 
 			perfect = new String("<span>3 coups en</span><span>1 fonction</span>");
 
@@ -421,6 +535,8 @@ $(document).ready(function() {
 			pieceOrigin[1] = new String("00");
 			numPiece = 1;
 
+			movePlat = false;
+
 			perfect = new String("<span>3 coups en</span><span>1 fonction</span>");
 
 			gridTest[0] = new Array(2,1,1,1,1,1,1,1,1,2);
@@ -452,6 +568,8 @@ $(document).ready(function() {
 			pieceOrigin[0] = new String("H9");
 			pieceOrigin[1] = new String("00");
 			numPiece = 1;
+
+			movePlat = false;
 
 			perfect = new String("<span>7 coups en</span><span>2 fonctions</span>");
 
@@ -485,6 +603,8 @@ $(document).ready(function() {
 			pieceOrigin[1] = new String("00");
 			numPiece = 1;
 
+			movePlat = false;
+
 			perfect = new String("<span>9 coups en</span><span>2 fonctions</span>");
 
 			gridTest[0] = new Array(0,0,0,0,0,0,0,0,0,0);
@@ -516,6 +636,8 @@ $(document).ready(function() {
 			pieceOrigin[0] = new String("C1");
 			pieceOrigin[1] = new String("00");
 			numPiece = 1;
+
+			movePlat = false;
 
 			perfect = new String("<span>8 coups en</span><span>2 fonctions</span>");
 
@@ -549,6 +671,8 @@ $(document).ready(function() {
 			pieceOrigin[1] = new String("00");
 			numPiece = 1;
 
+			movePlat = false;
+
 			perfect = new String("<span>5 coups en</span><span>1 fonction</span>");
 		
 			gridTest[0] = new Array(0,0,0,0,0,0,0,0,1,1);
@@ -581,6 +705,8 @@ $(document).ready(function() {
 			pieceOrigin[1] = new String("I7");
 			pieceOrigin[2] = new String("00");
 			numPiece = 2;
+
+			movePlat = false;
 
 			perfect = new String("<span>9 coups en</span><span>2 fonctions</span>");
 
@@ -621,6 +747,8 @@ $(document).ready(function() {
 			pieceOrigin[8] = new String("00");
 			numPiece = 8;
 
+			movePlat = false;
+
 			perfect = new String("<span>9 coups en</span><span>2 fonctions</span>");
 
 			gridTest[0] = new Array(2,1,2,0,0,0,0,2,1,2);
@@ -660,7 +788,9 @@ $(document).ready(function() {
 			pieceOrigin[8] = new String("00");
 			numPiece = 8;
 
-			perfect = new String("<span>24 coups en</span><span>5 fonctions</span>");
+			movePlat = false;
+
+			perfect = new String("<span>23 coups en</span><span>6 fonctions</span>");
 
 			gridTest[0] = new Array(0,0,0,0,0,0,0,0,0,0);
 			gridTest[1] = new Array(0,0,2,1,1,1,1,1,2,0);
@@ -684,6 +814,7 @@ $(document).ready(function() {
 			grid[8] = new Array(0,0,1,0,1,0,0,0,1,0);
 			grid[9] = new Array(0,0,0,0,1,1,1,1,1,0);
 		}
+
 		function lvl13() {
 			posOrigin = new String("#J1");
 			dirOrigin = 2;
@@ -698,6 +829,8 @@ $(document).ready(function() {
 			pieceOrigin[8] = new String("H3");
 			pieceOrigin[9] = new String("00");
 			numPiece = 9;
+
+			movePlat = false;
 
 			perfect = new String("<span>12 coups en</span><span>1 fonction</span>");
 
@@ -731,6 +864,8 @@ $(document).ready(function() {
 			pieceOrigin[1] = new String("00");
 			numPiece = 1;
 
+			movePlat = false;
+
 			perfect = new String("<span>7 coups en</span><span>1 fonction</span>");
 
 			gridTest[0] = new Array(0,0,0,0,0,0,0,0,0,0);
@@ -763,6 +898,8 @@ $(document).ready(function() {
 			pieceOrigin[1] = new String("00");
 			numPiece = 1;
 
+			movePlat = false;
+
 			perfect = new String("<span>17 coups en</span><span>3 fonctions</span>");
 
 			gridTest[0] = new Array(0,0,0,0,0,0,0,0,0,0);
@@ -786,6 +923,46 @@ $(document).ready(function() {
 			grid[7] = new Array(0,0,0,1,1,0,0,0,0,0);
 			grid[8] = new Array(0,0,0,1,0,0,0,0,0,0);
 			grid[9] = new Array(0,0,0,0,0,0,0,0,0,0);
+		}
+		function lvl16() {
+			posOrigin = new String("#E2");
+			dirOrigin = 2;
+			pieceOrigin[0] = new String("E8");
+			pieceOrigin[1] = new String("00");
+			numPiece = 1;
+
+			movePlat = true;
+			pathLong = 4;
+			path = new Array();
+			path[0] = new String("E6");
+			path[1] = new String("D6");
+			path[2] = new String("E6");
+			path[3] = new String("F6");
+
+			perfect = new String("<span>1 coup en</span><span>1 fonction</span>");
+
+			gridTest[0] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[1] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[2] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[3] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[4] = new Array(0,1,1,1,1,4,1,1,0,0);
+			gridTest[5] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[6] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[7] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[8] = new Array(0,0,0,0,0,0,0,0,0,0);
+			gridTest[9] = new Array(0,0,0,0,0,0,0,0,0,0);
+
+			grid[0] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[1] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[2] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[3] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[4] = new Array(0,1,1,1,1,4,1,1,0,0);
+			grid[5] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[6] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[7] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[8] = new Array(0,0,0,0,0,0,0,0,0,0);
+			grid[9] = new Array(0,0,0,0,0,0,0,0,0,0);
+			console.log(grid);
 		}
 
 	function initFonction () {
@@ -826,25 +1003,37 @@ $(document).ready(function() {
 					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("vert");
 					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("orange");
 					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("bleu");
+					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("violet");
 					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).addClass("blanc");
 				}
 				else if(grid[y][x] == 1)
 				{
 					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("orange");
 					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("bleu");
+					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("violet");
 					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).addClass("vert");
 				}
 				else if(grid[y][x] == 2)
 				{
 					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("vert");
 					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("bleu");
+					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("violet");
 					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).addClass("orange");
 				}
 				else if(grid[y][x] == 3)
 				{
 					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("vert");
 					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("orange");
+					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("violet");
 					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).addClass("bleu");
+				}
+				else if(grid[y][x] == 4)
+				{
+					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("vert");
+					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("orange");
+					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("bleu");
+					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).addClass("violet");
+
 				}
 				x++;
 			}
@@ -856,7 +1045,59 @@ $(document).ready(function() {
 	function reset_html() {
 		var y = 0;
 		var x = 0;
-		var i = 0;
+		var i = 0;  
+		while(y < 10)
+		{
+			while(x < 10)
+			{
+				//$("#" + putCoord(y, 'y') + putCoord(x, 'x') + " div").empty();
+				if(grid[y][x] == 0)
+				{
+					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("vert");
+					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("orange");
+					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("bleu");
+					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("violet");
+					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).addClass("blanc");
+				}
+				else if(grid[y][x] == 1)
+				{
+					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("orange");
+					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("bleu");
+					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("violet");
+					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).addClass("vert");
+				}
+				else if(grid[y][x] == 2)
+				{
+					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("vert");
+					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("bleu");
+					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("violet");
+					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).addClass("orange");
+				}
+				else if(grid[y][x] == 3)
+				{
+					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("vert");
+					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("orange");
+					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("violet");
+					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).addClass("bleu");
+				}
+				else if(grid[y][x] == 4)
+				{
+					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("vert");
+					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("orange");
+					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("bleu");
+					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).addClass("violet");
+
+				}
+				x++;
+			}
+			x = 0;
+			y++;
+		}
+		// while(x < pathLong)
+		// {
+		// 	$("#" + path[x] + " div").html("<p class=\"order\">" + (x + 1) + "</p>");
+		// 	x++;
+		// }
 		$("div.piece").removeClass("piece");
 		$("div.perso").empty();
 		$("div.perso").removeClass("perso");
@@ -866,40 +1107,6 @@ $(document).ready(function() {
 		{
 			$("#" + pieceOrigin[i] + " div").addClass("piece");
 			i++;
-		}  
-		while(y < 10)
-		{
-			while(x < 10)
-			{
-				if(grid[y][x] == 0)
-				{
-					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("vert");
-					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("orange");
-					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("bleu");
-					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).addClass("blanc");
-				}
-				else if(grid[y][x] == 1)
-				{
-					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("orange");
-					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("bleu");
-					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).addClass("vert");
-				}
-				else if(grid[y][x] == 2)
-				{
-					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("vert");
-					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("bleu");
-					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).addClass("orange");
-				}
-				else if(grid[y][x] == 3)
-				{
-					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("vert");
-					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).removeClass("orange");
-					$("#" + putCoord(y, 'y') + putCoord(x, 'x')).addClass("bleu");
-				}
-				x++;
-			}
-			x = 0;
-			y++;
 		}
 	}
 	initGrid();
@@ -967,6 +1174,9 @@ $(document).ready(function() {
 	}
 
 	function getCoord(id, axe) {
+		// console.log("///// ID = " +id);
+		// if(id[1] == '6' && axe == 'x')
+		// 	console.log("///// ID = " +id);
 		if((axe == 'y' && id[0] == 'A') || (axe == 'x' && id[1] == '1' && id.length == 2))
 			return 0;
 		if((axe == 'y' && id[0] == 'B') || (axe == 'x' && id[1] == '2'))
@@ -1094,23 +1304,31 @@ $(document).ready(function() {
 
 	function update_toDo(numAction) {
 		var i = 0;
-		var copy = new String();
-		while(toDo[i] != '0')
+		console.log("numAction = " + numAction);
+		while(toDo[i] != "0")
 		{
-			copy += toDo[i];
 			i++;
 		}
-		copy += numAction;
-		copy += '0';
-		i = 0;
-		toDo = new String();
-		while(copy[i] != '0')
-		{
-			toDo += copy[i];
-			i++;
-		}
-		toDo += '0';
-		//console.log("toDo à jour = " + toDo);
+		toDo[i] = new String(numAction);
+		toDo[i + 1] = new String("0");
+		// var i = 0;
+		// var copy = new String();
+		// while(toDo[i] != '0')
+		// {
+		// 	copy += toDo[i];
+		// 	i++;
+		// }
+		// copy += numAction;
+		// copy += '0';
+		// i = 0;
+		// toDo = new String();
+		// while(copy[i] != '0')
+		// {
+		// 	toDo += copy[i];
+		// 	i++;
+		// }
+		// toDo += '0';
+		console.log("toDo à jour = " + toDo[i]);
 	}
 
 	function over(posPersoX, posPersoY) {
@@ -1125,11 +1343,20 @@ $(document).ready(function() {
 		// //console.log("grid["+ posPersoY +"]["+ posPersoX +"] = " + grid[posPersoY][posPersoX]);
 		// console.log("////////////");
 		if(numPiece <= 0)
+		{
+			console.log("over 1");
 			return 2;
+		}
 		if(posPersoY < 0 || posPersoX < 0 || posPersoY > 9 || posPersoX > 9)
+		{
+			console.log("over 2");
 			return 1;
-		if(grid[posPersoY][posPersoX] == 0)
+		}
+		if(gridTest[posPersoY][posPersoX] == 0)
+		{
+			console.log("over 3");
 			return 1;
+		}
 		/*while(y < 10)
 		{
 			while(x < 10)
@@ -1250,6 +1477,11 @@ $(document).ready(function() {
 			level = 15;
 			lvl15();
 		}
+		else if(level == 16 || level == '16')
+		{
+			level = 16;
+			lvl16();
+		}
 		else
 		{
 			lvl1();
@@ -1263,8 +1495,8 @@ $(document).ready(function() {
 	}
 
 	function reset(nouv) {
-		toDo = new String();
-		toDo += '0';
+		toDo = new Array();
+		toDo[0] = new String("0");
 		count = 0;
 		initLevel(nouv);
 		reset_html();
@@ -1284,17 +1516,49 @@ $(document).ready(function() {
 		while(i < 15 && fonction[numFonction - 1][i] != 0 && over(posXtest, posYtest) == 0)
 		{
 			//dir = $("div.perso img").attr("src");
+			if(movePlat == true && fonction[numFonction - 1][i] < 9) {
+				if(posYtest == getCoord(path[move], 'y') && posXtest == getCoord(path[move], 'x'))
+				{
+					console.log("/////////// ALLER, ON EMBARQUE !!! \\\\\\\\\\\\");
+					if(move < pathLong - 1) {
+						posYtest = getCoord(path[move + 1], 'y');
+						posXtest = getCoord(path[move + 1], 'x');
+					}
+					else {
+						posYtest = getCoord(path[0], 'y');
+						posXtest = getCoord(path[0], 'x');
+					}
+					console.log("y = " + posYtest);
+					console.log("x = " + posXtest);
+				}
+				gridTest[getCoord(path[move][0], 'y')][getCoord(path[move], 'x')] = 0;
+				move++;
+				if(move > pathLong - 1) {
+					move = 0;
+				}
+				gridTest[getCoord(path[move][0], 'y')][getCoord(path[move], 'x')] = 4;
+				console.log("////// BOUGE");
+				console.log("gridTest["+posYtest+"]["+posXtest+"] = " +gridTest[posYtest][posXtest]);
+				console.log("path["+move+"] = " + path[move]);
+				console.log("///////////");
+			}
 			if((fonction[numFonction - 1][i] > 100 && fonction[numFonction - 1][i] < 200) && gridTest[posYtest][posXtest] == 1)
 			{
 				sous = 100;
 				fonction[numFonction - 1][i] -= 100;
 				console.log("condition: vert");
 			}
-			else if(fonction[numFonction - 1][i] > 200 && gridTest[posYtest][posXtest] == 2)
+			else if((fonction[numFonction - 1][i] > 200 && fonction[numFonction - 1][i] < 300) && gridTest[posYtest][posXtest] == 2)
 			{
 				sous = 200;
 				fonction[numFonction - 1][i] -= 200;
 				console.log("condition: orange");
+			}
+			else if(fonction[numFonction - 1][i] > 300 && gridTest[posYtest][posXtest] == 3)
+			{
+				sous = 300;
+				fonction[numFonction - 1][i] -= 300;
+				console.log("condition: bleu");
 			}
 			if(fonction[numFonction - 1][i] == 1)
 			{
@@ -1325,11 +1589,16 @@ $(document).ready(function() {
 					gridPiece[posYtest][posXtest] = 1;
 					console.log("PIECE !!!!");
 					numPiece--;
-				}/*
-				console.log("y = " + posYtest);
-				console.log("x = " + posXtest);*/
+				}
 				console.log("avance");
-				update_toDo('1');
+				console.log("y = " + posYtest);
+				console.log("x = " + posXtest);
+				if(movePlat == true) {
+					console.log("gridTest["+posYtest+"]["+posXtest+"] = " +gridTest[posYtest][posXtest]);
+					console.log("gridTest["+getCoord(path[move], 'y')+"]["+getCoord(path[move], 'x')+"] = " +gridTest[getCoord(path[move], 'y')][getCoord(path[move], 'x')]);
+					console.log("path["+move+"] = " + path[move]);
+				}
+				update_toDo("1");
 			}
 			else if(fonction[numFonction - 1][i] == 2)
 			{
@@ -1343,7 +1612,7 @@ $(document).ready(function() {
 				else
 					dirTest = 1;
 				console.log("tourner à droite");
-				update_toDo('2');
+				update_toDo("2");
 			}
 			else if(fonction[numFonction - 1][i] == 3)
 			{
@@ -1357,7 +1626,7 @@ $(document).ready(function() {
 				else
 					dirTest = 4;
 				console.log("tourne à gauche");
-				update_toDo('3');
+				update_toDo("3");
 			}
 			else if(fonction[numFonction - 1][i] == 4)
 			{
@@ -1368,7 +1637,7 @@ $(document).ready(function() {
 				}
 				gridTest[posYtest][posXtest] = 1;
 				console.log("peint en vert");
-				update_toDo('4');
+				update_toDo("4");
 			}
 			else if(fonction[numFonction - 1][i] == 5)
 			{
@@ -1379,12 +1648,23 @@ $(document).ready(function() {
 				}
 				gridTest[posYtest][posXtest] = 2;
 				console.log("peint en orange");
-				update_toDo('5');
+				update_toDo("5");
+			}
+			else if(fonction[numFonction - 1][i] == 20)
+			{
+				if(sous != 0)
+				{
+					fonction[numFonction - 1][i] += sous;
+					sous = 0;
+				}
+				gridTest[posYtest][posXtest] = 3;
+				console.log("peint en bleu");
+				update_toDo("20");
 			}
 			else if(fonction[numFonction - 1][i] == 8)
 			{
-				//ne rien faire
-				update_toDo('8');
+				console.log("on attend");
+				update_toDo("8");
 			}
 			else if(fonction[numFonction - 1][i] >= 9 && fonction[numFonction - 1][i] <= 18)
 			{
@@ -1426,7 +1706,45 @@ $(document).ready(function() {
 		var dir;
 		var sous = 0;
 		dir = $("div.perso img").attr("src");
-		if(toDo[count] == '1')
+		if(movePlat == true && (toDo[count] != "0" && stop != 1)) {
+			if(posPersoY == getCoord(path[move], 'y') && posPersoX == getCoord(path[move], 'x'))
+			{
+				id = new String();
+				id += "#";
+				id += putCoord(posPersoY, 'y');
+				id += putCoord(posPersoX, 'x');
+				$("div.perso").empty();
+				$("div.perso").removeClass("perso");
+				if(move < pathLong - 1) {
+					posPersoY = getCoord(path[move + 1], 'y');
+					posPersoX = getCoord(path[move + 1], 'x');
+				}
+				else {
+					posPersoY = getCoord(path[0], 'y');
+					posPersoX = getCoord(path[0], 'x');
+				}
+				id = new String();
+				id += "#";
+				id += putCoord(posPersoY, 'y');
+				id += putCoord(posPersoX, 'x');
+				$(id + " div").addClass("perso");
+				$(id + " div").append("<img src=\"img/curseur"+dir[11]+".png\" alt=\"curseur\">");
+			}
+			grid[getCoord(path[move][0], 'y')][getCoord(path[move], 'x')] = 0;
+			$("#"+path[move]).removeClass("violet");
+			move++;
+			if(move > pathLong - 1) {
+				move = 0;
+			}
+			grid[getCoord(path[move][0], 'y')][getCoord(path[move], 'x')] = 4;
+			$("#"+path[move]).addClass("violet");
+			console.log("//////");
+			console.log("coucou ! move = " + move);
+			console.log("posPersoY = " + posPersoY);
+			console.log("posPersoX = " + posPersoX);
+			console.log("grid["+posPersoY+"]["+posPersoX+"] = " +grid[posPersoY][posPersoX]);
+		}
+		if(toDo[count] == "1")
 		{
 			posPersoY = find_perso('y');
 			posPersoX = find_perso('x');
@@ -1483,14 +1801,14 @@ $(document).ready(function() {
 				$(id + " div").append("<img src=\"img/curseur4.png\" alt=\"curseur\">");
 			}
 		}
-		else if(toDo[count] == '2')
+		else if(toDo[count] == "2")
 		{
 			if(dir[11] == '1')
 			{
 				$("div.perso").empty();
 				$("div.perso").append("<img src=\"img/curseur2.png\" alt=\"curseur\">");
 			}
-			else if(dir[11] == '2')
+			else if(dir[11] == "2")
 			{
 				$("div.perso").empty();
 				$("div.perso").append("<img src=\"img/curseur3.png\" alt=\"curseur\">");
@@ -1506,7 +1824,7 @@ $(document).ready(function() {
 				$("div.perso").append("<img src=\"img/curseur1.png\" alt=\"curseur\">");
 			}
 		}
-		else if(toDo[count] == '3')
+		else if(toDo[count] == "3")
 		{
 			if(dir[11] == '1')
 			{
@@ -1529,17 +1847,31 @@ $(document).ready(function() {
 				$("div.perso").append("<img src=\"img/curseur3.png\" alt=\"curseur\">");
 			}
 		}
-		else if(toDo[count] == '4')
+		else if(toDo[count] == "4")
 		{
-			$("div.perso").parent().removeClass("orange");
-			$("div.perso").parent().addClass("vert");
+			if(!$("div.perso").parent().hasClass("violet")) {
+				$("div.perso").parent().removeClass("bleu");
+				$("div.perso").parent().removeClass("orange");
+				$("div.perso").parent().addClass("vert");
+			}
 		}
-		else if(toDo[count] == '5')
+		else if(toDo[count] == "5")
 		{
-			$("div.perso").parent().removeClass("vert");
-			$("div.perso").parent().addClass("orange");
+			if(!$("div.perso").parent().hasClass("violet")) {
+				$("div.perso").parent().removeClass("bleu");
+				$("div.perso").parent().removeClass("vert");
+				$("div.perso").parent().addClass("orange");
+			}
 		}
-		else if(toDo[count] == '8')
+		else if(toDo[count] == "20")
+		{
+			if(!$("div.perso").parent().hasClass("violet")) {
+				$("div.perso").parent().removeClass("orange");
+				$("div.perso").parent().removeClass("vert");
+				$("div.perso").parent().addClass("bleu");
+			}
+		}
+		else if(toDo[count] == "8")
 		{
 			//ne rien faire
 		}
@@ -1580,11 +1912,13 @@ $(document).ready(function() {
 		posXtest = find_perso('x');
 		dirTest = find_dir();
 		started = 1;
+		move = 0;
 
 		showFonction();
 
 		executeFonction(1);
 		secure = 0;
+		move = 0;
 		interval = setInterval(go, temps);
 
 		$("#startBis").show();
@@ -1633,6 +1967,8 @@ $(document).ready(function() {
 		reset(0);
 		$("#gagne").hide();
 		level++;
+		if(level > nbrLevel)
+			level = 1;
 		console.log("level++ = " + level);
 		initLevel(1);
 	});
