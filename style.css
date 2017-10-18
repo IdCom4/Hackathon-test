@@ -4,12 +4,26 @@ body {
 	padding: 10%;
 }
 
-div {
+#info {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	border: solid red 1px;
 	padding: 10px;
+}
+
+#rouage {
+	position: relative;
+	height: 30vw;
+	width: 30vw;
+}
+
+img {
+	position: absolute;
+	top: 10%;
+	left: 10%;
+	width: 80%;
+	height: 80%;
 }
 
 /*body, html, main {
